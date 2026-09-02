@@ -1,0 +1,573 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anna Dooley — About Me</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
+<style>
+:root{
+  --ink:#16171A; --oxblood:#5A222E; --olive:#45542F; --navy:#17325C;
+  --peach:#FFD4B0; --sage:#CBDDA4; --powder:#BFD5F0; --bone:#EFE9DE;
+  --font:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --t-hero:clamp(4.5rem,13cqw,12rem); --t-sec:clamp(2.75rem,6.5cqw,5.5rem);
+  --t-sub:clamp(1.5rem,2.4cqw,2.125rem); --t-body:clamp(1rem,1.15cqw,1.1875rem);
+  --t-li:clamp(1.125rem,1.5cqw,1.5rem); --t-meta:0.6875rem;
+  --gutter:1.5rem; --pad:clamp(2.5rem,5cqw,5.5rem);
+  --s1:0.5rem; --s2:1rem; --s3:1.5rem; --s4:2.5rem; --s5:4rem; --s6:6.5rem;
+  --dur-fast:180ms; --dur-base:420ms; --dur-slow:700ms; --dur-wipe:620ms;
+  --ease:cubic-bezier(0.22,1,0.36,1); --ease-snap:cubic-bezier(0.65,0,0.35,1);
+}
+.pair-a{--dark:var(--oxblood);--tint:var(--peach)}
+.pair-b{--dark:var(--olive);--tint:var(--sage)}
+.pair-c{--dark:var(--navy);--tint:var(--powder)}
+.pair-d{--dark:var(--ink);--tint:var(--bone)}
+.pair-a,.pair-b,.pair-c,.pair-d{--bg:var(--dark);--fg:var(--tint)}
+.inverted{--bg:var(--tint);--fg:var(--dark)}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:var(--font);background:var(--ink);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--fg,var(--bone));outline-offset:3px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+
+/* ---------- deck + slide shell ---------- */
+.deck{height:100dvh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:auto}
+.slide{height:100dvh;display:grid;place-items:center;scroll-snap-align:start;background:var(--ink)}
+.frame{position:relative;overflow:hidden;container-type:inline-size;
+  width:min(100vw,calc(100dvh * 16 / 9));aspect-ratio:16/9;
+  background:var(--bg);color:var(--fg);padding:var(--pad);display:flex;flex-direction:column}
+
+/* ---------- type roles ---------- */
+.hero{font-size:var(--t-hero);font-weight:800;letter-spacing:-0.045em;line-height:0.86;margin:0}
+.sec{font-size:var(--t-sec);font-weight:800;letter-spacing:-0.035em;line-height:0.92;margin:0}
+.sub{font-size:var(--t-sub);font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin:0}
+.body{font-size:var(--t-body);font-weight:400;line-height:1.5;max-width:62ch;margin:0}
+.li{font-size:var(--t-li);font-weight:500;letter-spacing:-0.01em;line-height:1.35}
+.meta{font-size:var(--t-meta);font-weight:500;letter-spacing:0.04em;line-height:1.3}
+
+/* ---------- furniture ---------- */
+.spine{position:absolute;top:var(--pad);writing-mode:vertical-rl;text-transform:uppercase;opacity:.4}
+.slide:nth-of-type(odd) .spine{left:calc(var(--pad) / 2.2)}
+.slide:nth-of-type(even) .spine{right:calc(var(--pad) / 2.2)}
+.foot{position:absolute;left:var(--pad);bottom:calc(var(--pad) / 2.2);text-transform:uppercase;opacity:.55}
+.num{position:absolute;right:var(--pad);bottom:calc(var(--pad) / 2.2);opacity:.55;letter-spacing:0.04em}
+.rule{display:block;height:1px;background:var(--fg);opacity:.25;transform-origin:left}
+
+/* ---------- image slots ---------- */
+.slot{position:relative;margin:0;overflow:hidden;aspect-ratio:var(--ratio,4/5)}
+.slot img,.ph{position:absolute;inset:0;width:100%;height:100%}
+.slot img{object-fit:cover;display:block}
+.ph{display:none;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;text-align:center;padding:var(--s2);
+  background:color-mix(in srgb,var(--fg) 10%,transparent);border:1px solid color-mix(in srgb,var(--fg) 35%,transparent)}
+.slot.is-empty img{display:none}
+.slot.is-empty .ph{display:flex}
+.ph svg{position:absolute;inset:0;width:100%;height:100%;stroke:var(--fg);opacity:.18;stroke-width:1;fill:none}
+.ph span{position:relative;font-size:var(--t-meta);font-weight:500;letter-spacing:0.04em;line-height:1.3}
+.ph-name{opacity:.7}
+.ph-desc,.ph-ratio{opacity:.45}
+body.no-ph .ph{display:none!important}
+
+/* ---------- entrance primitives ---------- */
+.w,.wr{transition:clip-path var(--dur-base) var(--ease);transition-delay:var(--d,0ms)}
+/* the non-animating sides sit outside the box so the wipe never clips
+   type that deliberately overflows its own edges (slides 01, 08, 12) */
+.w{clip-path:inset(105% -50% -50% -50%)}
+.wr{clip-path:inset(-50% -50% -50% 105%)}
+.is-in .w{clip-path:inset(0 -50% -50% -50%)}
+.is-in .wr{clip-path:inset(-50% -50% -50% 0)}
+.rule{transform:scaleX(0);transition:transform var(--dur-base) var(--ease);transition-delay:var(--d,0ms)}
+.is-in .rule{transform:scaleX(1)}
+.pop{opacity:0;transform:scale(.9);transition:opacity var(--dur-fast) var(--ease),transform var(--dur-fast) var(--ease);transition-delay:var(--d,0ms)}
+.is-in .pop{opacity:1;transform:scale(1)}
+.slow{transition-duration:var(--dur-slow)}
+
+/* ---------- 01 title ---------- */
+.s01 .hero{white-space:nowrap;margin-inline:-14%;font-size:max(calc(var(--t-hero) * 1.45),21cqw);will-change:transform}
+.s01 .stack{margin-top:16cqw}
+.s01 .role{margin-top:var(--s4)}
+.s01 .tag{margin-top:var(--s1);max-width:34ch}
+.s01 .slot{position:absolute;right:var(--pad);bottom:calc(var(--pad) * 1.35);width:22cqw;z-index:1}
+
+/* ---------- 02 contents ---------- */
+.toc{margin-top:var(--s4);margin-bottom:var(--s5);display:flex;flex-direction:column;flex:1;justify-content:space-between}
+.toc-row{display:grid;grid-template-columns:6ch 1fr 4ch;align-items:baseline;gap:var(--gutter);
+  padding:calc(var(--s2) * .9) 0 var(--s1);position:relative;text-align:left;width:100%}
+.toc-row .lab{text-align:right;transition:transform var(--dur-fast) var(--ease)}
+.toc-row .go{text-align:right;opacity:0;transition:opacity var(--dur-fast) var(--ease)}
+.toc-row .rule{position:absolute;left:0;right:0;bottom:0;transition:transform var(--dur-base) var(--ease),height var(--dur-fast) var(--ease);transition-delay:var(--d,0ms)}
+.toc-row:hover .rule,.toc-row:focus-visible .rule{height:2px;opacity:.45}
+.toc-row:hover .lab,.toc-row:focus-visible .lab{transform:translateX(8px)}
+.toc-row:hover .go,.toc-row:focus-visible .go{opacity:.55}
+
+/* ---------- 03 where I'm from ---------- */
+.stops{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter);margin-top:var(--s5)}
+.stops .track{position:absolute;left:0;right:0;top:.62em;height:1px}
+.stop .n{position:relative;display:inline-block;background:var(--bg);padding-right:var(--s2)}
+.stop .place{margin-top:var(--s2)}
+.stop .line{margin-top:var(--s1);opacity:.8}
+.s03 .slot{margin-top:auto;width:100%;aspect-ratio:auto;flex:0 0 46%;min-height:110px}
+
+/* ---------- 04 denver ---------- */
+.s04 .body + .body{margin-top:var(--s3)}
+.s04 .col{max-width:46%;margin-top:auto;margin-bottom:auto}
+.s04 .slot{position:absolute;right:0;bottom:0;width:46%;--ratio:3/2;
+  transform:translateX(8%);transition:transform var(--dur-base) var(--ease)}
+.s04.is-in .slot{transform:translateX(0)}
+
+/* ---------- 05 outside of work ---------- */
+.cells{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5) var(--gutter);margin-top:var(--s4);flex:1;align-content:center}
+.cell{position:relative;padding-bottom:var(--s2)}
+.cell .rule{position:absolute;left:0;right:0;bottom:0}
+.cell .line{margin-top:var(--s1);opacity:.8}
+@keyframes redraw{from{transform:scaleX(.4)}to{transform:scaleX(1)}}
+@media (hover:hover){.is-in .cell:hover .rule.hov{animation:redraw var(--dur-fast) var(--ease)}}
+
+/* ---------- 06 moving around ---------- */
+.s06 .wrap{display:grid;grid-template-columns:1fr 26cqw;gap:var(--s6);align-items:center;margin-top:var(--s4);flex:1}
+.moves li{list-style:none;margin:0 0 var(--s4)}
+.moves{margin:0;padding:0}
+.moves .aspirational{font-weight:400;opacity:.6}
+
+/* ---------- 07 places ---------- */
+.s07 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:var(--s3);margin-bottom:var(--s2);flex:1;min-height:0}
+.trip{display:flex;flex-direction:column;min-height:0}
+.trip .year{opacity:.55;margin-top:calc(var(--s1) / 2)}
+.trip .line{margin-top:calc(var(--s1) / 2);opacity:.8;min-height:3em}
+.trip .slot{margin-top:var(--s2);width:100%;flex:1;min-height:0;--ratio:4/5}
+.trip.weighted .place{font-weight:800;letter-spacing:-0.03em}
+.trip.weighted .slot img,.trip.weighted .slot .ph{transform:scale(1.04);transition:transform var(--dur-slow) var(--ease)}
+.is-in .trip.weighted .slot img,.is-in .trip.weighted .slot .ph{transform:scale(1)}
+
+/* ---------- 08 family ---------- */
+.s08 .frame{padding:var(--pad)}
+.s08 .slot{position:absolute;inset:0;aspect-ratio:auto;z-index:0}
+.s08 .slot img{transform:scale(1.07);transition:transform 1100ms var(--ease)}
+.s08.is-in .slot img{transform:scale(1)}
+.s08 .ph{background:var(--ink);border:0;justify-content:flex-end;align-items:flex-end;padding:calc(var(--pad) * 1.4)}
+.s08 .ph svg{opacity:.12}
+.s08 .ph span{text-align:right;display:block}
+.scrim{position:absolute;inset:0;background:var(--ink);opacity:1;transition:opacity 1100ms var(--ease);z-index:1}
+.s08.is-in .scrim{opacity:.55}
+.s08 .txt{position:relative;z-index:2;margin-top:auto;margin-bottom:var(--s5)}
+.s08 .hero{margin-left:-6%;max-width:14ch}
+.s08 .sub{margin-top:var(--s3);max-width:44ch}
+
+/* ---------- 09 fun facts ---------- */
+.facts{margin-top:var(--s4);display:flex;flex-direction:column;gap:var(--s5);flex:1;justify-content:center}
+.fact .supp{margin-top:var(--s1);opacity:.7}
+
+/* ---------- 10 favorites ---------- */
+.favs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s5) var(--gutter);margin-top:var(--s4);flex:1;align-content:center}
+.fav{transition:opacity var(--dur-fast) var(--ease)}
+.fav .items{margin-top:var(--s1);max-width:30ch}
+@media (hover:hover){.favs:hover .fav{opacity:.35}.favs .fav:hover{opacity:1}}
+
+/* ---------- 11 currently ---------- */
+.rows{margin-top:var(--s4);flex:1;display:flex;flex-direction:column;justify-content:center}
+.row{position:relative;display:grid;grid-template-columns:12ch 1fr;gap:var(--gutter);align-items:baseline;padding:var(--s4) 0}
+.row .k{text-transform:uppercase;opacity:.6}
+.row .rule{position:absolute;left:0;right:0;bottom:0}
+@media (hover:hover){.is-in .row:hover .rule{animation:redraw var(--dur-fast) var(--ease)}}
+
+/* ---------- 12 close ---------- */
+.s12 .stack{margin-top:auto;margin-bottom:auto}
+.s12 .hero{white-space:nowrap;font-size:max(var(--t-hero),19.2cqw)}
+.s12 .sub{margin-top:var(--s3);max-width:40ch}
+
+/* ---------- chrome: wipe, progress, hint, overview ---------- */
+.wipe{position:fixed;inset:0;z-index:60;pointer-events:none;transform:translateY(100%);will-change:transform}
+.progress{position:fixed;left:0;bottom:0;height:2px;width:0;z-index:50;background:var(--bone);
+  transition:width var(--dur-base) var(--ease),background var(--dur-base) var(--ease)}
+.hint{position:fixed;left:50%;bottom:var(--s3);transform:translateX(-50%);z-index:50;color:var(--bone);opacity:.6;
+  font-size:var(--t-meta);font-weight:500;letter-spacing:0.04em;transition:opacity var(--dur-base) var(--ease);pointer-events:none}
+.hint.gone{opacity:0}
+.ov{position:fixed;inset:0;z-index:70;background:var(--ink);display:none;overflow:auto;padding:var(--s4)}
+.ov.open{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);align-content:start}
+.ov-item{position:relative;aspect-ratio:16/9;overflow:hidden;opacity:.65;outline:2px solid transparent;
+  transition:opacity var(--dur-fast) var(--ease),outline-color var(--dur-fast) var(--ease),transform var(--dur-base) var(--ease);
+  transform:scale(var(--in,.92));transition-delay:var(--d,0ms)}
+.ov.open .ov-item{--in:1}
+.ov-item:hover,.ov-item:focus-visible{opacity:1;outline-color:var(--bone)}
+.ov-item .frame{position:absolute;top:0;left:0;width:1600px;height:900px;aspect-ratio:auto;transform-origin:0 0;transform:scale(var(--s,.2))}
+
+/* ---------- responsive ---------- */
+@media (max-width:1199px){
+  .cells,.favs{grid-template-columns:repeat(2,1fr)}
+  .s06 .wrap{grid-template-columns:1fr 32cqw;gap:var(--s4)}
+  .ov.open{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:899px){
+  .slide{height:auto;min-height:100dvh;display:block}
+  .frame{width:100vw;aspect-ratio:auto;min-height:100dvh;padding:var(--s4) var(--s3) var(--s5) var(--s4)}
+  .frame{container-type:normal}
+  :root{--t-hero:clamp(3rem,13vw,5rem);--t-sec:clamp(2rem,9vw,3rem);--t-sub:clamp(1.25rem,5vw,1.5rem);
+    --t-body:1rem;--t-li:1.125rem;--pad:var(--s3)}
+  .s01 .hero,.s12 .hero{white-space:normal;margin-inline:0;font-size:var(--t-hero)}
+  .s08 .hero{margin-left:0;max-width:none}
+  .cells,.favs,.s07 .cols,.stops,.s06 .wrap{grid-template-columns:1fr;gap:var(--s3)}
+  .stops .track{display:none}
+  .s01 .stack{margin-top:var(--s4)}
+  .s01 .slot{position:static;width:100%;margin-top:var(--s4)}
+  .toc,.cells,.favs,.facts,.rows,.s06 .wrap,.s07 .cols{flex:none;margin-bottom:0}
+  .s04 .col{max-width:none}
+  .s04 .slot{position:static;width:100%;margin-top:var(--s4);transform:none}
+  .trip .slot{height:auto;width:100%;flex:none;margin-top:var(--s2)}
+  .s03 .slot{flex:none;aspect-ratio:16/9;margin-top:var(--s4)}
+  .s08 .txt{margin-top:40vh}
+  .ov.open{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  .deck{scroll-behavior:auto}
+  .w,.wr,.rule,.pop,.s04 .slot,.s08 .slot img,.scrim,.trip.weighted .slot img,.trip.weighted .slot .ph,.ov-item{
+    transition-property:opacity!important;transition-duration:var(--dur-fast)!important;transition-delay:0ms!important}
+  .w,.wr,.pop{clip-path:none!important;transform:none!important;opacity:0}
+  .is-in .w,.is-in .wr,.is-in .pop{opacity:1}
+  .rule{transform:scaleX(1)!important}
+  .cell .rule.hov,.row .rule{animation:none!important}
+  .s04 .slot,.s08 .slot img,.trip.weighted .slot img,.trip.weighted .slot .ph{transform:none!important}
+  .scrim{opacity:.55}
+  .ov-item{transform:none!important}
+}
+
+/* ---------- print ---------- */
+@page{size:1600px 900px landscape;margin:0}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .progress,.hint,.wipe,.ov{display:none!important}
+  .deck{height:auto;overflow:visible}
+  .slide{height:900px;min-height:0;display:block;break-after:page;page-break-after:always}
+  .frame{width:1600px;height:900px;min-height:0;aspect-ratio:auto}
+  .w,.wr{clip-path:none!important}
+  .rule{transform:scaleX(1)!important}
+  .cell .rule.hov,.row .rule{animation:none!important}
+  .pop{opacity:1!important;transform:none!important}
+  .s04 .slot,.s08 .slot img{transform:none!important}
+  .scrim{opacity:.55}
+}
+</style>
+
+<div class="deck" id="deck">
+
+<section class="slide pair-a s01" data-n="01"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <div class="stack">
+    <h1 class="hero w slow" id="heroName">Anna Dooley</h1>
+    <p class="sub w role" style="--d:120ms">Sr. Product Designer</p>
+    <p class="body w tag" style="--d:200ms">The accidental youngest of a very large family.</p>
+  </div>
+  <figure class="slot w" style="--ratio:4/5;--d:260ms">
+    <img src="images/01-hero.jpg" alt="Anna, portrait" onerror="this.closest('.slot').classList.add('is-empty')">
+    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">01-hero.jpg</span><span class="ph-desc">Portrait of Anna</span><span class="ph-ratio">4:5</span></div>
+  </figure>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">01</button>
+</div></section>
+
+<section class="slide pair-c inverted s02" data-n="02"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Contents</h2>
+  <nav class="toc" aria-label="Slides"></nav>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">02</button>
+</div></section>
+
+<section class="slide pair-b inverted s03" data-n="03"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Where I'm from</h2>
+  <div class="stops">
+    <i class="rule track slow"></i>
+    <div class="stop"><span class="li n pop" style="--d:120ms">01</span><p class="sub place w" style="--d:200ms">Lake Oswego, OR</p><p class="body line w" style="--d:200ms">Grew up here.</p></div>
+    <div class="stop"><span class="li n pop" style="--d:280ms">02</span><p class="sub place w" style="--d:360ms">Bend, OR</p><p class="body line w" style="--d:360ms">Oregon State University, Cascades campus.</p></div>
+    <div class="stop"><span class="li n pop" style="--d:440ms">03</span><p class="sub place w" style="--d:520ms">Scottsdale, AZ</p><p class="body line w" style="--d:520ms">First job out of school, at Ideas Collide.</p></div>
+    <div class="stop"><span class="li n pop" style="--d:600ms">04</span><p class="sub place w" style="--d:680ms">Denver, CO</p><p class="body line w" style="--d:680ms">Covid pushed me out of Oregon. I stayed.</p></div>
+  </div>
+  <figure class="slot w" style="--d:400ms">
+    <img src="images/03-oregon.jpg" alt="Oregon landscape" onerror="this.closest('.slot').classList.add('is-empty')">
+    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">03-oregon.jpg</span><span class="ph-desc">Oregon landscape</span><span class="ph-ratio">16:9</span></div>
+  </figure>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">03</button>
+</div></section>
+
+<section class="slide pair-d s04" data-n="04"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Denver</h2>
+  <div class="col">
+    <p class="body w" style="--d:120ms">I live in LoHi. Denver was supposed to be temporary and it very much is not.</p>
+    <p class="body w" style="--d:200ms">No pets. One brother, one sister, both a decade-plus older than me, which means I grew up somewhere between youngest child and only child.</p>
+  </div>
+  <figure class="slot" style="--ratio:3/2">
+    <img src="images/04-denver.jpg" alt="Denver, LoHi" onerror="this.closest('.slot').classList.add('is-empty')">
+    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">04-denver.jpg</span><span class="ph-desc">Denver or LoHi</span><span class="ph-ratio">3:2</span></div>
+  </figure>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">04</button>
+</div></section>
+
+<section class="slide pair-a inverted s05" data-n="05"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Outside of work</h2>
+  <div class="cells">
+    <div class="cell"><p class="sub w" style="--d:110ms">Movies</p><p class="body line w" style="--d:110ms">Alamo Drafthouse season pass holder, unashamed.</p><i class="rule hov" style="--d:110ms"></i></div>
+    <div class="cell"><p class="sub w" style="--d:165ms">Art</p><p class="body line w" style="--d:165ms">Making it, not just looking at it.</p><i class="rule hov" style="--d:165ms"></i></div>
+    <div class="cell"><p class="sub w" style="--d:220ms">Music</p><p class="body line w" style="--d:220ms">Always on.</p><i class="rule hov" style="--d:220ms"></i></div>
+    <div class="cell"><p class="sub w" style="--d:275ms">Ancient history</p><p class="body line w" style="--d:275ms">Civilizations, ruins, the whole rabbit hole.</p><i class="rule hov" style="--d:275ms"></i></div>
+    <div class="cell"><p class="sub w" style="--d:330ms">Reading</p><p class="body line w" style="--d:330ms">Constantly, mostly fantasy.</p><i class="rule hov" style="--d:330ms"></i></div>
+    <div class="cell"><p class="sub w" style="--d:385ms">Sports</p><p class="body line w" style="--d:385ms">Watching, loudly.</p><i class="rule hov" style="--d:385ms"></i></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">05</button>
+</div></section>
+
+<section class="slide pair-b s06" data-n="06"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Moving around</h2>
+  <div class="wrap">
+    <ul class="moves">
+      <li class="li w" style="--d:100ms">Lifting weights</li>
+      <li class="li w" style="--d:170ms">Hiking</li>
+      <li class="li w" style="--d:240ms">Skiing</li>
+      <li class="li w" style="--d:310ms">Golf</li>
+      <li class="li w slow aspirational" style="--d:760ms">Trying to become a runner</li>
+    </ul>
+    <figure class="slot w" style="--ratio:4/5;--d:240ms">
+      <img src="images/06-outdoors.jpg" alt="Hiking, skiing, or lifting" onerror="this.closest('.slot').classList.add('is-empty')">
+      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">06-outdoors.jpg</span><span class="ph-desc">Hiking, skiing, or lifting</span><span class="ph-ratio">4:5</span></div>
+    </figure>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">06</button>
+</div></section>
+
+<section class="slide pair-c s07" data-n="07"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Places I've been</h2>
+  <div class="cols">
+    <div class="trip"><p class="sub place w" style="--d:100ms">Oktoberfest, Munich</p><p class="meta year w" style="--d:100ms">Year</p><p class="body line w" style="--d:100ms">Exactly as advertised.</p>
+      <figure class="slot w" style="--d:100ms"><img src="images/07-travel-1.jpg" alt="Oktoberfest" onerror="this.closest('.slot').classList.add('is-empty')">
+      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-travel-1.jpg</span><span class="ph-desc">Oktoberfest</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="trip"><p class="sub place w" style="--d:190ms">Positano, Italy</p><p class="meta year w" style="--d:190ms">Year</p><p class="body line w" style="--d:190ms">The one I'd go back to tomorrow.</p>
+      <figure class="slot w" style="--d:190ms"><img src="images/07-travel-2.jpg" alt="Positano" onerror="this.closest('.slot').classList.add('is-empty')">
+      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-travel-2.jpg</span><span class="ph-desc">Positano</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="trip weighted"><p class="sub place w" style="--d:280ms">Ireland</p><p class="meta year w" style="--d:280ms">Year</p><p class="body line w" style="--d:280ms">With twenty-six cousins, aunts and uncles.</p>
+      <figure class="slot w" style="--d:280ms"><img src="images/07-travel-3.jpg" alt="Ireland" onerror="this.closest('.slot').classList.add('is-empty')">
+      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-travel-3.jpg</span><span class="ph-desc">Ireland</span><span class="ph-ratio">4:5</span></div></figure></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">07</button>
+</div></section>
+
+<section class="slide pair-d s08" data-n="08"><div class="frame">
+  <figure class="slot">
+    <img src="images/08-family.jpg" alt="The full family group photo" onerror="this.closest('.slot').classList.add('is-empty')">
+    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">08-family.jpg</span><span class="ph-desc">The full family group photo</span><span class="ph-ratio">16:9</span></div>
+  </figure>
+  <div class="scrim"></div>
+  <span class="spine meta" style="z-index:2">Anna Dooley</span>
+  <div class="txt">
+    <h2 class="hero w slow" style="--d:350ms">Forty first cousins</h2>
+    <p class="sub w" style="--d:520ms">My mom was one of fourteen kids. Family reunions are a logistics problem.</p>
+  </div>
+</div></section>
+
+<section class="slide pair-a s09" data-n="09"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">A few fun facts</h2>
+  <div class="facts">
+    <div class="fact"><p class="sub w" style="--d:100ms">I kickbox.</p><p class="body supp w" style="--d:240ms">Or I did. Currently very out of practice.</p></div>
+    <div class="fact"><p class="sub w" style="--d:260ms">I take karaoke seriously.</p><p class="body supp w" style="--d:400ms">There is a setlist. I'd rather not discuss it.</p></div>
+    <div class="fact"><p class="sub w" style="--d:420ms">I built a family history website.</p><p class="body supp w" style="--d:560ms">Tracing my great-great-grandparents' emigration from Ireland, mostly for fun.</p></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">09</button>
+</div></section>
+
+<section class="slide pair-b inverted s10" data-n="10"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Favorites</h2>
+  <div class="favs">
+    <div class="fav"><p class="sub w">Music</p><p class="li items w">Morgan Wallen, The Beatles, One Direction</p></div>
+    <div class="fav"><p class="sub w">Movies</p><p class="li items w">The Green Mile, When Harry Met Sally, Harry Potter, Guardians of the Galaxy</p></div>
+    <div class="fav"><p class="sub w">Shows</p><p class="li items w">How I Met Your Mother, Game of Thrones, Grey's Anatomy</p></div>
+    <div class="fav"><p class="sub w">Books</p><p class="li items w">ACOTAR and anything Sarah J. Maas, The Nightingale, How to Stop Worrying and Start Living</p></div>
+    <div class="fav"><p class="sub w">Food</p><p class="li items w">Taco Bell, sushi, Mead St. Provisions</p></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">10</button>
+</div></section>
+
+<section class="slide pair-c inverted s11" data-n="11"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Currently</h2>
+  <div class="rows">
+    <div class="row"><span class="meta k w" style="--d:100ms">Reading</span><span class="li w" style="--d:100ms">Theo of Golden</span><i class="rule" style="--d:100ms"></i></div>
+    <div class="row"><span class="meta k w" style="--d:180ms">Watching</span><span class="li w" style="--d:180ms">The Vampire Diaries, and The Dark Wizard when I want something real</span><i class="rule" style="--d:180ms"></i></div>
+    <div class="row"><span class="meta k w" style="--d:260ms">Listening</span><span class="li w" style="--d:260ms">Kingfisher</span><i class="rule" style="--d:260ms"></i></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">11</button>
+</div></section>
+
+<section class="slide pair-a s12" data-n="12"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <div class="stack">
+    <h2 class="hero wr slow">Come say hi</h2>
+    <p class="sub w" style="--d:200ms">I'm easy to find, and I will talk about any of the above at length.</p>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">12</button>
+</div></section>
+
+</div>
+
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<p class="hint" id="hint">Arrow keys to move · G for overview · P to hide placeholders</p>
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Slide overview"></div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck'),wipe=document.getElementById('wipe'),
+      bar=document.getElementById('progress'),hint=document.getElementById('hint'),ov=document.getElementById('ov'),
+      slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,busy=false,ovBuilt=false;
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var TOC=["Where I'm from","Denver","Outside of work","Moving around","Places I've been","The family","A few fun facts","Favorites","Currently"],
+      ROM=['I','II','III','IV','V','VI','VII','VIII','IX'];
+
+  /* contents rows, built as real buttons so they are keyboard reachable */
+  var toc=document.querySelector('.toc');
+  TOC.forEach(function(label,i){
+    var b=document.createElement('button');
+    b.className='toc-row';b.style.setProperty('--d',(140+i*45)+'ms');
+    b.innerHTML='<span class="li w">'+ROM[i]+'.</span><span class="li lab w">'+label+
+      '</span><span class="meta go">'+String(i+3).padStart(2,'0')+'</span><i class="rule"></i>';
+    b.querySelectorAll('.w').forEach(function(el){el.style.setProperty('--d',(180+i*45)+'ms')});
+    b.addEventListener('click',function(){go(i+2)});
+    toc.appendChild(b);
+  });
+
+  function fg(i){return getComputedStyle(slides[i].querySelector('.frame')).color}
+  function bg(i){return getComputedStyle(slides[i].querySelector('.frame')).backgroundColor}
+  function setProgress(){bar.style.width=((cur+1)/slides.length*100)+'%';bar.style.background=fg(cur)}
+  function jump(i){deck.scrollTo({top:deck.scrollTop+slides[i].getBoundingClientRect().top,behavior:'auto'})}
+
+  function go(i){
+    i=Math.max(0,Math.min(slides.length-1,i));
+    if(busy||i===cur)return;
+    var dir=i>cur?1:-1;busy=true;
+    if(rm.matches){
+      wipe.style.transition='opacity 120ms linear';wipe.style.transform='none';
+      wipe.style.background=bg(i);wipe.style.opacity='0';
+      requestAnimationFrame(function(){wipe.style.opacity='1';
+        setTimeout(function(){cur=i;jump(i);setProgress();wipe.style.opacity='0';
+          setTimeout(function(){wipe.style.transform='translateY(100%)';busy=false},130)},130)});
+      return;
+    }
+    wipe.style.opacity='1';wipe.style.background=bg(i);
+    wipe.style.transition='none';
+    wipe.style.transform='translateY('+(dir>0?'100%':'-100%')+')';
+    requestAnimationFrame(function(){
+      wipe.style.transition='transform var(--dur-wipe) var(--ease-snap)';
+      wipe.style.transform='translateY(0)';
+      setTimeout(function(){
+        cur=i;jump(i);setProgress();
+        setTimeout(function(){
+          wipe.style.transition='transform var(--dur-wipe) var(--ease)';
+          wipe.style.transform='translateY('+(dir>0?'-100%':'100%')+')';
+          setTimeout(function(){busy=false},620);
+        },60);
+      },620);
+    });
+  }
+
+  /* free scrolling: native snap, no wipe */
+  var tick=false;
+  deck.addEventListener('scroll',function(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      tick=false;if(busy)return;
+      var best=0,bd=Infinity;
+      slides.forEach(function(s,n){var d=Math.abs(s.getBoundingClientRect().top);if(d<bd){bd=d;best=n}});
+      var i=best;
+      i=Math.max(0,Math.min(slides.length-1,i));
+      if(i!==cur){cur=i;setProgress()}
+    });
+  },{passive:true});
+
+  /* entrances */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){e.target.classList.toggle('is-in',e.isIntersecting)});
+  },{threshold:0.45});
+  slides.forEach(function(s){io.observe(s)});
+
+  /* keyboard */
+  var NEXT={ArrowDown:1,ArrowRight:1,' ':1,Spacebar:1,PageDown:1},PREV={ArrowUp:1,ArrowLeft:1,PageUp:1};
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    hideHint();
+    var k=e.key;
+    if(k==='Escape'&&ov.classList.contains('open')){e.preventDefault();toggleOv(false);return}
+    if(k==='g'||k==='G'){e.preventDefault();toggleOv(!ov.classList.contains('open'));return}
+    if(k==='p'||k==='P'){e.preventDefault();document.body.classList.toggle('no-ph');return}
+    if(ov.classList.contains('open'))return;
+    if(NEXT[k]){e.preventDefault();go(cur+1)}
+    else if(PREV[k]){e.preventDefault();go(cur-1)}
+    else if(k==='Home'){e.preventDefault();go(0)}
+    else if(k==='End'){e.preventDefault();go(slides.length-1)}
+  });
+
+  /* overview */
+  document.querySelectorAll('[data-ov]').forEach(function(b){
+    b.addEventListener('click',function(){toggleOv(true)});
+  });
+  function buildOv(){
+    slides.forEach(function(s,i){
+      var item=document.createElement('button');
+      item.className='ov-item';item.style.setProperty('--d',(i*25)+'ms');
+      item.setAttribute('aria-label','Go to slide '+(i+1));
+      var c=s.querySelector('.frame').cloneNode(true);
+      c.querySelectorAll('button').forEach(function(x){x.disabled=true;x.setAttribute('tabindex','-1')});
+      c.querySelectorAll('[id]').forEach(function(x){x.removeAttribute('id')});
+      var host=document.createElement('div');
+      host.className=s.className.replace('slide','')+' is-in';
+      host.style.cssText='position:absolute;inset:0';host.appendChild(c);
+      item.appendChild(host);
+      item.addEventListener('click',function(){toggleOv(false);go(i)});
+      ov.appendChild(item);
+    });
+    ovBuilt=true;
+  }
+  function scaleOv(){
+    ov.querySelectorAll('.ov-item').forEach(function(it){
+      it.querySelector('.frame').style.setProperty('--s',it.clientWidth/1600);
+    });
+  }
+  function toggleOv(open){
+    if(open&&!ovBuilt)buildOv();
+    ov.classList.toggle('open',open);
+    if(open){scaleOv();ov.querySelector('.ov-item').focus()}
+  }
+  window.addEventListener('resize',function(){if(ovBuilt)scaleOv()});
+
+  /* title slide drift: the deck's only parallax */
+  var hero=document.getElementById('heroName'),tx=0,px=0,raf=null;
+  if(!rm.matches){
+    window.addEventListener('pointermove',function(e){
+      px=((e.clientX/window.innerWidth)-0.5)*28;
+      if(!raf)raf=requestAnimationFrame(drift);
+    },{passive:true});
+  }
+  function drift(){
+    tx+=(px-tx)*0.08;
+    hero.style.transform='translateX('+tx.toFixed(2)+'px)';
+    raf=Math.abs(px-tx)>0.1?requestAnimationFrame(drift):null;
+  }
+
+  /* keyboard hint, first load only */
+  var hintTimer=setTimeout(hideHint,4000),hintGone=false;
+  function hideHint(){if(hintGone)return;hintGone=true;clearTimeout(hintTimer);hint.classList.add('gone');
+    setTimeout(function(){hint.remove()},500)}
+
+  setProgress();
+})();
+</script>
