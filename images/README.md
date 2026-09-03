@@ -1,8 +1,8 @@
 # Images
 
-Drop photos in here using these exact filenames. Each appears automatically —
-no code changes, no rebuild. Until a file exists the deck shows a styled
-placeholder that already reserves the right space, so nothing shifts.
+Every slot below is filled. To swap a photograph, drop a new file in with the
+same name — no code changes, no rebuild. Delete one and the deck falls back to
+a styled placeholder that reserves the same space, so nothing shifts either way.
 
 Slots are named for what they hold, not the slide they sit on, so reordering
 slides never renames a file.
@@ -12,6 +12,7 @@ slides never renames a file.
 | `ask-costume.jpg` | A costume | filled |
 | `ask-dog.jpg` | The family dog | filled |
 | `ask-friends.jpg` | The friends | filled |
+| `ask-hans-zimmer.jpg` | Hans Zimmer scores | filled |
 | `cover-1.jpg` | Throne of Glass | filled |
 | `cover-2.jpg` | The Nightingale | filled |
 | `cover-3.jpg` | The Great Alone | filled |
@@ -36,7 +37,7 @@ slides never renames a file.
 | `home-4.jpg` | More of Oregon | filled |
 | `home-5.jpg` | More of Oregon | filled |
 | `ireland-group.jpg` | The wider family in Ireland | filled |
-| `like-ancient-history.jpg` | Ruins, a museum, a book stack | **needed** |
+| `like-ancient-history.jpg` | Ruins, a museum, a book stack | filled |
 | `like-art.jpg` | A drawing in progress | filled |
 | `like-movies.jpg` | The Drafthouse, or a marquee | filled |
 | `like-music.jpg` | A concert | filled |
@@ -77,5 +78,4 @@ Most slots crop with `object-fit: cover`. The ones that must never crop —
 `crew.jpg`, `ireland-group.jpg`, and every poster and book cover — use
 `object-fit: contain`, so the whole image stays visible whatever shape it is.
 
-Press `P` to hide all placeholder chrome — image slots and dashed copy blocks —
-for a clean run-through or screenshot.
+Press `P` to hide placeholder chrome for a clean run-through or screenshot.

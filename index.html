@@ -246,8 +246,8 @@ body.no-ph .tbd{visibility:hidden}
 .shelf .cap{margin-top:var(--s2)}
 
 /* ---------- 19 ask me about ---------- */
-.asks{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3) var(--gutter);
-  margin-top:var(--s4);flex:1;align-content:center;max-width:70%}
+.asks{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3) var(--gutter);
+  margin-top:var(--s4);flex:1;align-content:center;max-width:90%}
 .asks .slot{--ratio:4/5;width:100%}
 .asks .cap{margin-top:var(--s2)}
 
@@ -339,7 +339,7 @@ body.no-ph .tbd{visibility:hidden}
   <div class="stack">
     <h1 class="hero w slow" id="heroName">Anna Dooley</h1>
     <p class="sub w role" style="--d:120ms">Sr. Product Designer</p>
-    <p class="body w tag" style="--d:200ms">The accidental youngest of a very large family.</p>
+    <p class="body w tag" style="--d:200ms">An Oregonian in the mountains, still missing the water.</p>
   </div>
   <figure class="slot w" style="--ratio:4/5;--d:260ms"><img src="images/hero.jpg" alt="Portrait of Anna" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">hero.jpg</span><span class="ph-desc">Portrait of Anna</span><span class="ph-ratio">4:5</span></div></figure>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
@@ -375,7 +375,7 @@ body.no-ph .tbd{visibility:hidden}
 <section class="slide pair-d s04" data-n="04"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Home</h2>
-  <div class="w homeline" style="--d:120ms"><div class="tbd"><span class="k">One line about Oregon</span><p class="h">What it still is to you now that you live somewhere else. This is the slide people will ask about.</p></div></div>
+  <p class="body w homeline" style="--d:120ms">My favorite place in the continental US. Any chance I get to go back, I do &mdash; the beach, the rivers, the mountains. The only deterrent is eight months of drizzle. I miss a summer full of easily accessible bodies of water.</p>
   <div class="homerow">
     <div>
     <figure class="slot w" style="--ratio:4/5;--d:160ms"><img src="images/home-1.jpg" alt="The Deschutes" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">home-1.jpg</span><span class="ph-desc">The Deschutes</span><span class="ph-ratio">4:5</span></div></figure><p class="meta cap w" style="--d:160ms">The Deschutes</p></div>
@@ -398,7 +398,7 @@ body.no-ph .tbd{visibility:hidden}
   <div class="col">
     <p class="body w" style="--d:120ms">I live in LoHi. Denver was supposed to be temporary and it very much is not.</p>
     <p class="body w" style="--d:200ms">No pets. One brother, one sister, both a decade-plus older than me, which means I grew up somewhere between youngest child and only child.</p>
-    <div class="w" style="--d:280ms;margin-top:var(--s3)"><div class="tbd"><span class="k">Add a line</span><p class="h">What you actually do here — the walk, the bar, the thing you would show someone visiting for a weekend.</p></div></div>
+    <p class="body w" style="--d:280ms">I love to walk my neighborhood and frequent the places in it: Three Dogs, Mead St. Provisions and Occidental.</p>
   </div>
   <figure class="slot w" style="--ratio:3/2"><img src="images/denver.jpg" alt="Denver or LoHi" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">denver.jpg</span><span class="ph-desc">Denver or LoHi</span><span class="ph-ratio">3:2</span></div></figure>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
@@ -443,7 +443,7 @@ body.no-ph .tbd{visibility:hidden}
     <div class="make">
     <figure class="slot w" style="--ratio:4/5;--d:420ms"><img src="images/make-logos.jpg" alt="A mark or wordmark you drew" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">make-logos.jpg</span><span class="ph-desc">A mark or wordmark you drew</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:420ms">Logos</p></div>
   </div>
-  <div class="w makeline" style="--d:480ms"><div class="tbd"><span class="k">One line about making things</span><p class="h">Why you make rather than only look. The napkin drawing is signed — that is the kind of detail worth saying out loud.</p></div></div>
+  <p class="body w makeline" style="--d:480ms">I love to get creative with my hands. More recently I've been trying to commit real time to making art.</p>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">07</button>
 </div></section>
@@ -549,7 +549,7 @@ body.no-ph .tbd{visibility:hidden}
   <h2 class="sec w">The whole crew</h2>
   <div class="crew">
     <figure class="slot w fit" style="--ratio:16/9;--d:140ms"><img src="images/crew.jpg" alt="All of us, the whole group" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">crew.jpg</span><span class="ph-desc">All of us, the whole group</span><span class="ph-ratio">16:9</span></div></figure>
-    <div class="w cap" style="--d:260ms"><div class="tbd"><span class="k">Say who this is</span><p class="h">Where it was taken, who is missing, and the one detail that makes the room laugh.</p></div></div>
+    <p class="body w cap" style="--d:260ms">My brother Donovan and my sister Ali. My parents, Connie and Don. Emily and Garth, in-laws. And the nieces and nephews: Aubrey, Dakota, Miles, Savanna and Zeke. Taken at Disney World last year, on the way to a Disney cruise.</p>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">13</button>
@@ -574,7 +574,7 @@ body.no-ph .tbd{visibility:hidden}
     <div class="fact"><p class="sub w" style="--d:100ms">I kickbox.</p><p class="body supp w" style="--d:200ms">Or I did. Currently very out of practice.</p></div>
     <div class="fact"><p class="sub w" style="--d:220ms">I take karaoke seriously.</p><p class="body supp w" style="--d:320ms">There is a setlist. I'd rather not discuss it.</p></div>
     <div class="fact"><p class="sub w" style="--d:340ms">I built a family history website.</p><p class="body supp w" style="--d:440ms">Tracing my great-great-grandparents' emigration from Ireland, mostly for fun.</p></div>
-    <div class="fact w" style="--d:460ms"><div class="tbd"><span class="k">Add a fourth fact</span><p class="h">One bold line, one line underneath. The three above are the format.</p></div></div>
+    <div class="fact"><p class="sub w" style="--d:460ms">I'm related to Ashton Kutcher.</p></div>
     <div class="fact"><p class="sub w" style="--d:580ms">I play Pepper.</p><p class="body supp w" style="--d:680ms">Bidding euchre, and a family institution. It gets loud.</p></div>
   </div>
   <div>
@@ -592,8 +592,8 @@ body.no-ph .tbd{visibility:hidden}
     <div class="fav"><p class="sub w">Music</p><p class="li items w">Morgan Wallen, The Beatles, One Direction</p></div>
     <div class="fav"><p class="sub w">Shows</p><p class="li items w">How I Met Your Mother, Game of Thrones, Grey's Anatomy</p></div>
     <div class="fav"><p class="sub w">Food</p><p class="li items w">Taco Bell, sushi, Mead St. Provisions</p></div>
-    <div class="fav w"><div class="tbd"><span class="k">Add a category</span><p class="h">Podcasts, places, people — whatever is missing.</p></div></div>
-    <div class="fav w"><div class="tbd"><span class="k">And another</span><p class="h">Movies and books get their own slides next.</p></div></div>
+    <div class="fav"><p class="sub w">Places</p><p class="li items w">Bend, Oregon; Italy; Zion National Park</p></div>
+    <div class="fav"><p class="sub w">Kitchen appliances</p><p class="li items w">Air fryer, Nespresso frother, egg boiler</p></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">16</button>
@@ -644,7 +644,7 @@ body.no-ph .tbd{visibility:hidden}
     <div class="row"><span class="meta k w" style="--d:100ms">Reading</span><span class="li w" style="--d:100ms">Theo of Golden</span><i class="rule" style="--d:100ms"></i></div>
     <div class="row"><span class="meta k w" style="--d:180ms">Watching</span><span class="li w" style="--d:180ms">The Vampire Diaries, and The Dark Wizard when I want something real</span><i class="rule" style="--d:180ms"></i></div>
     <div class="row"><span class="meta k w" style="--d:260ms">Listening</span><span class="li w" style="--d:260ms">Kingfisher</span><i class="rule" style="--d:260ms"></i></div>
-    <div class="row"><span class="meta k w" style="--d:340ms">Add one</span><div class="w" style="--d:340ms"><div class="tbd"><span class="k">Cooking, learning, avoiding</span><p class="h">Whatever the fourth row should be.</p></div></div><i class="rule" style="--d:340ms"></i></div>
+    <div class="row"><span class="meta k w" style="--d:340ms">Cooking</span><span class="li w" style="--d:340ms">Smashed burger tacos, and spicy salmon bowls</span><i class="rule" style="--d:340ms"></i></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">19</button>
@@ -657,7 +657,7 @@ body.no-ph .tbd{visibility:hidden}
     <div><figure class="slot w" style="--ratio:4/5;--d:120ms"><img src="images/ask-costume.jpg" alt="A costume" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ask-costume.jpg</span><span class="ph-desc">A costume</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:120ms">The costumes</p></div>
     <div><figure class="slot w" style="--ratio:4/5;--d:190ms"><img src="images/ask-friends.jpg" alt="The friends" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ask-friends.jpg</span><span class="ph-desc">The friends</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:190ms">The friends</p></div>
     <div><figure class="slot w" style="--ratio:4/5;--d:260ms"><img src="images/ask-dog.jpg" alt="The family dog" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ask-dog.jpg</span><span class="ph-desc">The family dog</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:260ms">The family dog</p></div>
-    <div class="w" style="--d:330ms;grid-column:1/-1"><div class="tbd"><span class="k">One more prompt</span><p class="h">The thing you actually want to be asked about on day one. A project, a trip, an argument you will happily have.</p></div></div>
+    <div><figure class="slot w" style="--ratio:4/5;--d:330ms"><img src="images/ask-hans-zimmer.jpg" alt="Hans Zimmer scores" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ask-hans-zimmer.jpg</span><span class="ph-desc">Hans Zimmer scores</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:330ms">Hans Zimmer scores</p></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">20</button>
