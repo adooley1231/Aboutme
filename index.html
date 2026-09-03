@@ -103,7 +103,6 @@ body.no-ph .ph{display:none!important}
 .stop .n{position:relative;display:inline-block;background:var(--bg);padding-right:var(--s2)}
 .stop .place{margin-top:var(--s2)}
 .stop .line{margin-top:var(--s1);opacity:.8}
-.s03 .slot{margin-top:auto;width:100%;aspect-ratio:auto;flex:0 0 46%;min-height:110px}
 
 /* ---------- 04 denver ---------- */
 .s04 .body + .body{margin-top:var(--s3)}
@@ -121,13 +120,13 @@ body.no-ph .ph{display:none!important}
 @media (hover:hover){.is-in .cell:hover .rule.hov{animation:redraw var(--dur-fast) var(--ease)}}
 
 /* ---------- 06 moving around ---------- */
-.s06 .wrap{display:grid;grid-template-columns:1fr 26cqw;gap:var(--s6);align-items:center;margin-top:var(--s4);flex:1}
+.s07 .wrap{display:grid;grid-template-columns:1fr 26cqw;gap:var(--s6);align-items:center;margin-top:var(--s4);flex:1}
 .moves li{list-style:none;margin:0 0 var(--s4)}
 .moves{margin:0;padding:0}
 .moves .aspirational{font-weight:400;opacity:.6}
 
 /* ---------- 07 places ---------- */
-.s07 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:var(--s3);margin-bottom:var(--s2);flex:1;min-height:0}
+.s08 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:var(--s3);margin-bottom:var(--s2);flex:1;min-height:0}
 .trip{display:flex;flex-direction:column;min-height:0}
 .trip .year{opacity:.55;margin-top:calc(var(--s1) / 2)}
 .trip .line{margin-top:calc(var(--s1) / 2);opacity:.8;min-height:3em}
@@ -137,18 +136,18 @@ body.no-ph .ph{display:none!important}
 .is-in .trip.weighted .slot img,.is-in .trip.weighted .slot .ph{transform:scale(1)}
 
 /* ---------- 08 family ---------- */
-.s08 .frame{padding:var(--pad)}
-.s08 .slot{position:absolute;inset:0;aspect-ratio:auto;z-index:0}
-.s08 .slot img{transform:scale(1.07);transition:transform 1100ms var(--ease)}
-.s08.is-in .slot img{transform:scale(1)}
-.s08 .ph{background:var(--ink);border:0;justify-content:flex-end;align-items:flex-end;padding:calc(var(--pad) * 1.4)}
-.s08 .ph svg{opacity:.12}
-.s08 .ph span{text-align:right;display:block}
+.s10 .frame{padding:var(--pad)}
+.s10 .slot{position:absolute;inset:0;aspect-ratio:auto;z-index:0}
+.s10 .slot img{transform:scale(1.07);transition:transform 1100ms var(--ease)}
+.s10.is-in .slot img{transform:scale(1)}
+.s10 .ph{background:var(--ink);border:0;justify-content:flex-end;align-items:flex-end;padding:calc(var(--pad) * 1.4)}
+.s10 .ph svg{opacity:.12}
+.s10 .ph span{text-align:right;display:block}
 .scrim{position:absolute;inset:0;background:var(--ink);opacity:1;transition:opacity 1100ms var(--ease);z-index:1}
-.s08.is-in .scrim{opacity:.55}
-.s08 .txt{position:relative;z-index:2;margin-top:auto;margin-bottom:var(--s5)}
-.s08 .hero{margin-left:-6%;max-width:14ch}
-.s08 .sub{margin-top:var(--s3);max-width:44ch}
+.s10.is-in .scrim{opacity:.55}
+.s10 .txt{position:relative;z-index:2;margin-top:auto;margin-bottom:var(--s5)}
+.s10 .hero{margin-left:-6%;max-width:14ch}
+.s10 .sub{margin-top:var(--s3);max-width:44ch}
 
 /* ---------- 09 fun facts ---------- */
 .facts{margin-top:var(--s4);display:flex;flex-direction:column;gap:var(--s5);flex:1;justify-content:center}
@@ -168,9 +167,55 @@ body.no-ph .ph{display:none!important}
 @media (hover:hover){.is-in .row:hover .rule{animation:redraw var(--dur-fast) var(--ease)}}
 
 /* ---------- 12 close ---------- */
-.s12 .stack{margin-top:auto;margin-bottom:auto}
-.s12 .hero{white-space:nowrap;font-size:max(var(--t-hero),19.2cqw)}
-.s12 .sub{margin-top:var(--s3);max-width:40ch}
+.s16 .stack{margin-top:auto;margin-bottom:auto}
+.s16 .hero{white-space:nowrap;font-size:max(var(--t-hero),19.2cqw)}
+.s16 .sub{margin-top:var(--s3);max-width:40ch}
+
+/* ---------- photographs inside stops and cells ---------- */
+.stop .slot{margin-top:var(--s3);width:100%;--ratio:4/5}
+.cell .slot{margin-bottom:var(--s2);width:100%;--ratio:2.4/1}
+
+/* ---------- content placeholder: Anna's to fill in ---------- */
+.tbd{position:relative;padding:var(--s2);
+  border:1px dashed color-mix(in srgb,var(--fg) 38%,transparent);
+  background:color-mix(in srgb,var(--fg) 7%,transparent)}
+.tbd .k{display:block;font-size:var(--t-meta);font-weight:500;letter-spacing:.04em;
+  text-transform:uppercase;opacity:.7;margin-bottom:.4rem}
+.tbd .h{font-size:var(--t-body);line-height:1.5;opacity:.45;margin:0;max-width:52ch}
+body.no-ph .tbd{visibility:hidden}
+
+/* ---------- 06 making things ---------- */
+.makes{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);
+  margin-top:var(--s4);flex:1;align-content:center;max-width:70%}
+.make .slot{--ratio:4/5;width:100%}
+.make .cap{margin-top:var(--s2)}
+.make .line{margin-top:var(--s1);opacity:.8}
+
+/* ---------- 09 more places ---------- */
+.grid8{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3) var(--gutter);
+  margin-top:var(--s4);flex:1;align-content:center;max-width:78%}
+.grid8 .slot{--ratio:1/1;width:100%}
+.grid8 .cap{margin-top:var(--s1);opacity:.8}
+
+/* ---------- 11 the immediate family ---------- */
+.fam{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter);
+  margin-top:var(--s4);flex:1;align-content:center}
+.fam .slot{--ratio:4/5;width:100%}
+.fam .cap{margin-top:var(--s2)}
+
+/* ---------- 15 ask me about ---------- */
+.asks{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3) var(--gutter);
+  margin-top:var(--s4);flex:1;align-content:center;max-width:70%}
+
+/* ---------- 07 moving around: the list beside a three-up strip ---------- */
+.s08 .wrap{grid-template-columns:1fr 42cqw;gap:var(--s5)}
+.movepix{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter)}
+.movepix .slot{--ratio:4/5;width:100%}
+.asks .slot{--ratio:4/5;width:100%}
+.asks .cap{margin-top:var(--s2)}
+
+/* thirteen contents rows need tighter leading than nine did */
+.toc-row{padding:calc(var(--s1) * 1.2) 0 calc(var(--s1) * .8)}
 
 /* ---------- chrome: wipe, progress, hint, overview ---------- */
 .wipe{position:fixed;inset:0;z-index:60;pointer-events:none;transform:translateY(100%);will-change:transform}
@@ -191,7 +236,7 @@ body.no-ph .ph{display:none!important}
 /* ---------- responsive ---------- */
 @media (max-width:1199px){
   .cells,.favs{grid-template-columns:repeat(2,1fr)}
-  .s06 .wrap{grid-template-columns:1fr 32cqw;gap:var(--s4)}
+  .s07 .wrap{grid-template-columns:1fr 32cqw;gap:var(--s4)}
   .ov.open{grid-template-columns:repeat(3,1fr)}
 }
 @media (max-width:899px){
@@ -200,31 +245,36 @@ body.no-ph .ph{display:none!important}
   .frame{container-type:normal}
   :root{--t-hero:clamp(3rem,13vw,5rem);--t-sec:clamp(2rem,9vw,3rem);--t-sub:clamp(1.25rem,5vw,1.5rem);
     --t-body:1rem;--t-li:1.125rem;--pad:var(--s3)}
-  .s01 .hero,.s12 .hero{white-space:normal;margin-inline:0;font-size:var(--t-hero)}
-  .s08 .hero{margin-left:0;max-width:none}
-  .cells,.favs,.s07 .cols,.stops,.s06 .wrap{grid-template-columns:1fr;gap:var(--s3)}
+  .s01 .hero,.s16 .hero{white-space:normal;margin-inline:0;font-size:var(--t-hero)}
+  .s10 .hero{margin-left:0;max-width:none}
+  .cells,.favs,.s08 .cols,.stops,.s07 .wrap{grid-template-columns:1fr;gap:var(--s3)}
   .stops .track{display:none}
   .s01 .stack{margin-top:var(--s4)}
   .s01 .slot{position:static;width:100%;margin-top:var(--s4)}
-  .toc,.cells,.favs,.facts,.rows,.s06 .wrap,.s07 .cols{flex:none;margin-bottom:0}
+  .toc,.cells,.favs,.facts,.rows,.s07 .wrap,.s08 .cols{flex:none;margin-bottom:0}
   .s04 .col{max-width:none}
   .s04 .slot{position:static;width:100%;margin-top:var(--s4);transform:none}
   .trip .slot{height:auto;width:100%;flex:none;margin-top:var(--s2)}
-  .s03 .slot{flex:none;aspect-ratio:16/9;margin-top:var(--s4)}
-  .s08 .txt{margin-top:40vh}
+  .s10 .txt{margin-top:40vh}
+  .makes,.grid8,.fam,.asks,.movepix{grid-template-columns:1fr}
+  .makes,.grid8,.asks{max-width:none}
+  .s08 .wrap{grid-template-columns:1fr}
+  .cell .slot{--ratio:16/9}
+  .makes,.grid8,.fam,.asks{flex:none}
+
   .ov.open{grid-template-columns:repeat(2,1fr)}
 }
 
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
   .deck{scroll-behavior:auto}
-  .w,.wr,.rule,.pop,.s04 .slot,.s08 .slot img,.scrim,.trip.weighted .slot img,.trip.weighted .slot .ph,.ov-item{
+  .w,.wr,.rule,.pop,.s04 .slot,.s10 .slot img,.scrim,.trip.weighted .slot img,.trip.weighted .slot .ph,.ov-item{
     transition-property:opacity!important;transition-duration:var(--dur-fast)!important;transition-delay:0ms!important}
   .w,.wr,.pop{clip-path:none!important;transform:none!important;opacity:0}
   .is-in .w,.is-in .wr,.is-in .pop{opacity:1}
   .rule{transform:scaleX(1)!important}
   .cell .rule.hov,.row .rule{animation:none!important}
-  .s04 .slot,.s08 .slot img,.trip.weighted .slot img,.trip.weighted .slot .ph{transform:none!important}
+  .s04 .slot,.s10 .slot img,.trip.weighted .slot img,.trip.weighted .slot .ph{transform:none!important}
   .scrim{opacity:.55}
   .ov-item{transform:none!important}
 }
@@ -241,7 +291,7 @@ body.no-ph .ph{display:none!important}
   .rule{transform:scaleX(1)!important}
   .cell .rule.hov,.row .rule{animation:none!important}
   .pop{opacity:1!important;transform:none!important}
-  .s04 .slot,.s08 .slot img{transform:none!important}
+  .s04 .slot,.s10 .slot img{transform:none!important}
   .scrim{opacity:.55}
 }
 </style>
@@ -255,10 +305,7 @@ body.no-ph .ph{display:none!important}
     <p class="sub w role" style="--d:120ms">Sr. Product Designer</p>
     <p class="body w tag" style="--d:200ms">The accidental youngest of a very large family.</p>
   </div>
-  <figure class="slot w" style="--ratio:4/5;--d:260ms">
-    <img src="images/01-hero.jpg" alt="Anna, portrait" onerror="this.closest('.slot').classList.add('is-empty')">
-    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">01-hero.jpg</span><span class="ph-desc">Portrait of Anna</span><span class="ph-ratio">4:5</span></div>
-  </figure>
+  <figure class="slot w" style="--ratio:4/5;--d:260ms"><img src="images/01-hero.jpg" alt="Portrait of Anna" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">01-hero.jpg</span><span class="ph-desc">Portrait of Anna</span><span class="ph-ratio">4:5</span></div></figure>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">01</button>
 </div></section>
@@ -276,15 +323,15 @@ body.no-ph .ph{display:none!important}
   <h2 class="sec w">Where I'm from</h2>
   <div class="stops">
     <i class="rule track slow"></i>
-    <div class="stop"><span class="li n pop" style="--d:120ms">01</span><p class="sub place w" style="--d:200ms">Lake Oswego, OR</p><p class="body line w" style="--d:200ms">Grew up here.</p></div>
-    <div class="stop"><span class="li n pop" style="--d:280ms">02</span><p class="sub place w" style="--d:360ms">Bend, OR</p><p class="body line w" style="--d:360ms">Oregon State University, Cascades campus.</p></div>
-    <div class="stop"><span class="li n pop" style="--d:440ms">03</span><p class="sub place w" style="--d:520ms">Scottsdale, AZ</p><p class="body line w" style="--d:520ms">First job out of school, at Ideas Collide.</p></div>
-    <div class="stop"><span class="li n pop" style="--d:600ms">04</span><p class="sub place w" style="--d:680ms">Denver, CO</p><p class="body line w" style="--d:680ms">Covid pushed me out of Oregon. I stayed.</p></div>
+    <div class="stop"><span class="li n pop" style="--d:120ms">01</span><p class="sub place w" style="--d:200ms">Lake Oswego, OR</p><p class="body line w" style="--d:200ms">Grew up here.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:260ms"><img src="images/03-lake-oswego.jpg" alt="The Oregon coast" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">03-lake-oswego.jpg</span><span class="ph-desc">The Oregon coast</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="stop"><span class="li n pop" style="--d:280ms">02</span><p class="sub place w" style="--d:360ms">Bend, OR</p><p class="body line w" style="--d:360ms">Oregon State University, Cascades campus.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:420ms"><img src="images/03-bend.jpg" alt="Floating the Deschutes" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">03-bend.jpg</span><span class="ph-desc">Floating the Deschutes</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="stop"><span class="li n pop" style="--d:440ms">03</span><p class="sub place w" style="--d:520ms">Scottsdale, AZ</p><p class="body line w" style="--d:520ms">First job out of school, at Ideas Collide.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:580ms"><img src="images/03-scottsdale.jpg" alt="Scottsdale or the desert" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">03-scottsdale.jpg</span><span class="ph-desc">Scottsdale or the desert</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="stop"><span class="li n pop" style="--d:600ms">04</span><p class="sub place w" style="--d:680ms">Denver, CO</p><p class="body line w" style="--d:680ms">Covid pushed me out of Oregon. I stayed.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:740ms"><img src="images/03-denver.jpg" alt="Denver or LoHi" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">03-denver.jpg</span><span class="ph-desc">Denver or LoHi</span><span class="ph-ratio">4:5</span></div></figure></div>
   </div>
-  <figure class="slot w" style="--d:400ms">
-    <img src="images/03-oregon.jpg" alt="Oregon landscape" onerror="this.closest('.slot').classList.add('is-empty')">
-    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">03-oregon.jpg</span><span class="ph-desc">Oregon landscape</span><span class="ph-ratio">16:9</span></div>
-  </figure>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">03</button>
 </div></section>
@@ -295,11 +342,9 @@ body.no-ph .ph{display:none!important}
   <div class="col">
     <p class="body w" style="--d:120ms">I live in LoHi. Denver was supposed to be temporary and it very much is not.</p>
     <p class="body w" style="--d:200ms">No pets. One brother, one sister, both a decade-plus older than me, which means I grew up somewhere between youngest child and only child.</p>
+    <div class="w" style="--d:280ms;margin-top:var(--s3)"><div class="tbd"><span class="k">Add a line</span><p class="h">What you actually do here — the walk, the bar, the thing you would show someone visiting for a weekend.</p></div></div>
   </div>
-  <figure class="slot" style="--ratio:3/2">
-    <img src="images/04-denver.jpg" alt="Denver, LoHi" onerror="this.closest('.slot').classList.add('is-empty')">
-    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">04-denver.jpg</span><span class="ph-desc">Denver or LoHi</span><span class="ph-ratio">3:2</span></div>
-  </figure>
+  <figure class="slot w" style="--ratio:3/2"><img src="images/04-denver.jpg" alt="Denver or LoHi" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">04-denver.jpg</span><span class="ph-desc">Denver or LoHi</span><span class="ph-ratio">3:2</span></div></figure>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">04</button>
 </div></section>
@@ -308,18 +353,39 @@ body.no-ph .ph{display:none!important}
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Outside of work</h2>
   <div class="cells">
-    <div class="cell"><p class="sub w" style="--d:110ms">Movies</p><p class="body line w" style="--d:110ms">Alamo Drafthouse season pass holder, unashamed.</p><i class="rule hov" style="--d:110ms"></i></div>
-    <div class="cell"><p class="sub w" style="--d:165ms">Art</p><p class="body line w" style="--d:165ms">Making it, not just looking at it.</p><i class="rule hov" style="--d:165ms"></i></div>
-    <div class="cell"><p class="sub w" style="--d:220ms">Music</p><p class="body line w" style="--d:220ms">Always on.</p><i class="rule hov" style="--d:220ms"></i></div>
-    <div class="cell"><p class="sub w" style="--d:275ms">Ancient history</p><p class="body line w" style="--d:275ms">Civilizations, ruins, the whole rabbit hole.</p><i class="rule hov" style="--d:275ms"></i></div>
-    <div class="cell"><p class="sub w" style="--d:330ms">Reading</p><p class="body line w" style="--d:330ms">Constantly, mostly fantasy.</p><i class="rule hov" style="--d:330ms"></i></div>
-    <div class="cell"><p class="sub w" style="--d:385ms">Sports</p><p class="body line w" style="--d:385ms">Watching, loudly.</p><i class="rule hov" style="--d:385ms"></i></div>
+    <div class="cell">
+    <figure class="slot w" style="--ratio:2.4/1;--d:110ms"><img src="images/05-movies.jpg" alt="The Drafthouse, or a marquee" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">05-movies.jpg</span><span class="ph-desc">The Drafthouse, or a marquee</span><span class="ph-ratio">2.4:1</span></div></figure><p class="sub w" style="--d:110ms">Movies</p><p class="body line w" style="--d:110ms">Alamo Drafthouse season pass holder, unashamed.</p><i class="rule hov" style="--d:110ms"></i></div>
+    <div class="cell">
+    <figure class="slot w" style="--ratio:2.4/1;--d:165ms"><img src="images/05-art.jpg" alt="A drawing in progress" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">05-art.jpg</span><span class="ph-desc">A drawing in progress</span><span class="ph-ratio">2.4:1</span></div></figure><p class="sub w" style="--d:165ms">Art</p><p class="body line w" style="--d:165ms">Making it, not just looking at it.</p><i class="rule hov" style="--d:165ms"></i></div>
+    <div class="cell">
+    <figure class="slot w" style="--ratio:2.4/1;--d:220ms"><img src="images/05-music.jpg" alt="A concert" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">05-music.jpg</span><span class="ph-desc">A concert</span><span class="ph-ratio">2.4:1</span></div></figure><p class="sub w" style="--d:220ms">Music</p><p class="body line w" style="--d:220ms">Always on.</p><i class="rule hov" style="--d:220ms"></i></div>
+    <div class="cell">
+    <figure class="slot w" style="--ratio:2.4/1;--d:275ms"><img src="images/05-ancient-history.jpg" alt="Ruins, a museum, a book stack" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">05-ancient-history.jpg</span><span class="ph-desc">Ruins, a museum, a book stack</span><span class="ph-ratio">2.4:1</span></div></figure><p class="sub w" style="--d:275ms">Ancient history</p><p class="body line w" style="--d:275ms">Civilizations, ruins, the whole rabbit hole.</p><i class="rule hov" style="--d:275ms"></i></div>
+    <div class="cell">
+    <figure class="slot w" style="--ratio:2.4/1;--d:330ms"><img src="images/05-reading.jpg" alt="Your shelf, or what you are on now" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">05-reading.jpg</span><span class="ph-desc">Your shelf, or what you are on now</span><span class="ph-ratio">2.4:1</span></div></figure><p class="sub w" style="--d:330ms">Reading</p><p class="body line w" style="--d:330ms">Constantly, mostly fantasy.</p><i class="rule hov" style="--d:330ms"></i></div>
+    <div class="cell">
+    <figure class="slot w" style="--ratio:2.4/1;--d:385ms"><img src="images/05-sports.jpg" alt="A game" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">05-sports.jpg</span><span class="ph-desc">A game</span><span class="ph-ratio">2.4:1</span></div></figure><p class="sub w" style="--d:385ms">Sports</p><p class="body line w" style="--d:385ms">Watching, loudly.</p><i class="rule hov" style="--d:385ms"></i></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">05</button>
 </div></section>
 
-<section class="slide pair-b s06" data-n="06"><div class="frame">
+<section class="slide pair-d inverted s06" data-n="06"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Making things</h2>
+  <div class="makes">
+    <div class="make">
+    <figure class="slot w" style="--ratio:4/5;--d:120ms"><img src="images/06-making-1.jpg" alt="A drawing on a napkin" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">06-making-1.jpg</span><span class="ph-desc">A drawing on a napkin</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:120ms">Drawing</p><p class="body line w" style="--d:120ms">Started on a napkin. Signed it anyway.</p></div>
+    <div class="make">
+    <figure class="slot w" style="--ratio:4/5;--d:200ms"><img src="images/06-making-2.jpg" alt="Sourdough" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">06-making-2.jpg</span><span class="ph-desc">Sourdough</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:200ms">Baking</p><p class="body line w" style="--d:200ms">Sourdough, mostly. It has become a whole thing.</p></div>
+    <div class="make">
+    <figure class="slot w" style="--ratio:4/5;--d:280ms"><img src="images/06-making-3.jpg" alt="Whatever you are making now" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">06-making-3.jpg</span><span class="ph-desc">Whatever you are making now</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:280ms">Add a third</p><p class="body line w" style="--d:280ms">Something you have made recently.</p></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">06</button>
+</div></section>
+
+<section class="slide pair-b s07" data-n="07"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Moving around</h2>
   <div class="wrap">
@@ -330,59 +396,97 @@ body.no-ph .ph{display:none!important}
       <li class="li w" style="--d:310ms">Golf</li>
       <li class="li w slow aspirational" style="--d:760ms">Trying to become a runner</li>
     </ul>
-    <figure class="slot w" style="--ratio:4/5;--d:240ms">
-      <img src="images/06-outdoors.jpg" alt="Hiking, skiing, or lifting" onerror="this.closest('.slot').classList.add('is-empty')">
-      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">06-outdoors.jpg</span><span class="ph-desc">Hiking, skiing, or lifting</span><span class="ph-ratio">4:5</span></div>
-    </figure>
-  </div>
-  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
-  <button class="meta num" data-ov aria-label="Open overview">06</button>
-</div></section>
-
-<section class="slide pair-c s07" data-n="07"><div class="frame">
-  <span class="spine meta">Anna Dooley</span>
-  <h2 class="sec w">Places I've been</h2>
-  <div class="cols">
-    <div class="trip"><p class="sub place w" style="--d:100ms">Oktoberfest, Munich</p><p class="meta year w" style="--d:100ms">Year</p><p class="body line w" style="--d:100ms">Exactly as advertised.</p>
-      <figure class="slot w" style="--d:100ms"><img src="images/07-travel-1.jpg" alt="Oktoberfest" onerror="this.closest('.slot').classList.add('is-empty')">
-      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-travel-1.jpg</span><span class="ph-desc">Oktoberfest</span><span class="ph-ratio">4:5</span></div></figure></div>
-    <div class="trip"><p class="sub place w" style="--d:190ms">Positano, Italy</p><p class="meta year w" style="--d:190ms">Year</p><p class="body line w" style="--d:190ms">The one I'd go back to tomorrow.</p>
-      <figure class="slot w" style="--d:190ms"><img src="images/07-travel-2.jpg" alt="Positano" onerror="this.closest('.slot').classList.add('is-empty')">
-      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-travel-2.jpg</span><span class="ph-desc">Positano</span><span class="ph-ratio">4:5</span></div></figure></div>
-    <div class="trip weighted"><p class="sub place w" style="--d:280ms">Ireland</p><p class="meta year w" style="--d:280ms">Year</p><p class="body line w" style="--d:280ms">With twenty-six cousins, aunts and uncles.</p>
-      <figure class="slot w" style="--d:280ms"><img src="images/07-travel-3.jpg" alt="Ireland" onerror="this.closest('.slot').classList.add('is-empty')">
-      <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-travel-3.jpg</span><span class="ph-desc">Ireland</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="movepix">
+      <figure class="slot w" style="--ratio:4/5;--d:200ms"><img src="images/07-moving-1.jpg" alt="Hiking the Three Sisters" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-moving-1.jpg</span><span class="ph-desc">Hiking the Three Sisters</span><span class="ph-ratio">4:5</span></div></figure><figure class="slot w" style="--ratio:4/5;--d:280ms"><img src="images/07-moving-2.jpg" alt="Skiing" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-moving-2.jpg</span><span class="ph-desc">Skiing</span><span class="ph-ratio">4:5</span></div></figure><figure class="slot w" style="--ratio:4/5;--d:360ms"><img src="images/07-moving-3.jpg" alt="A race, medals and all" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">07-moving-3.jpg</span><span class="ph-desc">A race, medals and all</span><span class="ph-ratio">4:5</span></div></figure>
+    </div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">07</button>
 </div></section>
 
-<section class="slide pair-d s08" data-n="08"><div class="frame">
-  <figure class="slot">
-    <img src="images/08-family.jpg" alt="The full family group photo" onerror="this.closest('.slot').classList.add('is-empty')">
-    <div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">08-family.jpg</span><span class="ph-desc">The full family group photo</span><span class="ph-ratio">16:9</span></div>
-  </figure>
+<section class="slide pair-c s08" data-n="08"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Places I've been</h2>
+  <div class="cols">
+    <div class="trip"><p class="sub place w" style="--d:100ms">Oktoberfest, Munich</p><p class="meta year w" style="--d:100ms">Year</p><p class="body line w" style="--d:100ms">Exactly as advertised.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:100ms"><img src="images/08-travel-1.jpg" alt="Oktoberfest" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">08-travel-1.jpg</span><span class="ph-desc">Oktoberfest</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="trip"><p class="sub place w" style="--d:190ms">Positano, Italy</p><p class="meta year w" style="--d:190ms">Year</p><p class="body line w" style="--d:190ms">The one I'd go back to tomorrow.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:190ms"><img src="images/08-travel-2.jpg" alt="Positano" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">08-travel-2.jpg</span><span class="ph-desc">Positano</span><span class="ph-ratio">4:5</span></div></figure></div>
+    <div class="trip weighted"><p class="sub place w" style="--d:280ms">Ireland</p><p class="meta year w" style="--d:280ms">Year</p><p class="body line w" style="--d:280ms">With twenty-six cousins, aunts and uncles.</p>
+    <figure class="slot w" style="--ratio:4/5;--d:280ms"><img src="images/08-travel-3.jpg" alt="Ireland" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">08-travel-3.jpg</span><span class="ph-desc">Ireland</span><span class="ph-ratio">4:5</span></div></figure></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">08</button>
+</div></section>
+
+<section class="slide pair-c inverted s09" data-n="09"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">More places</h2>
+  <div class="grid8">
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:90ms"><img src="images/09-place-1.jpg" alt="Capri" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-1.jpg</span><span class="ph-desc">Capri</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:90ms">Capri</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:145ms"><img src="images/09-place-2.jpg" alt="Venice" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-2.jpg</span><span class="ph-desc">Venice</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:145ms">Venice</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:200ms"><img src="images/09-place-3.jpg" alt="Florence" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-3.jpg</span><span class="ph-desc">Florence</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:200ms">Florence</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:255ms"><img src="images/09-place-4.jpg" alt="Galway" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-4.jpg</span><span class="ph-desc">Galway</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:255ms">Galway</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:310ms"><img src="images/09-place-5.jpg" alt="The Cliffs of Moher" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-5.jpg</span><span class="ph-desc">The Cliffs of Moher</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:310ms">The Cliffs of Moher</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:365ms"><img src="images/09-place-6.jpg" alt="Dublin" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-6.jpg</span><span class="ph-desc">Dublin</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:365ms">Dublin, obviously</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:420ms"><img src="images/09-place-7.jpg" alt="Forks, Washington" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-7.jpg</span><span class="ph-desc">Forks, Washington</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:420ms">Forks, Washington</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:1/1;--d:475ms"><img src="images/09-place-8.jpg" alt="Somewhere you want to add" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">09-place-8.jpg</span><span class="ph-desc">Somewhere you want to add</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:475ms">Add one</p></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">09</button>
+</div></section>
+
+<section class="slide pair-d s10" data-n="10"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <figure class="slot" style="--ratio:16/9"><img src="images/10-family.jpg" alt="The full family group photo" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">10-family.jpg</span><span class="ph-desc">The full family group photo</span><span class="ph-ratio">16:9</span></div></figure>
   <div class="scrim"></div>
-  <span class="spine meta" style="z-index:2">Anna Dooley</span>
   <div class="txt">
     <h2 class="hero w slow" style="--d:350ms">Forty first cousins</h2>
     <p class="sub w" style="--d:520ms">My mom was one of fourteen kids. Family reunions are a logistics problem.</p>
   </div>
+  <button class="meta num" data-ov aria-label="Open overview">10</button>
 </div></section>
 
-<section class="slide pair-a s09" data-n="09"><div class="frame">
+<section class="slide pair-a inverted s11" data-n="11"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">The immediate family</h2>
+  <div class="fam">
+    <div>
+    <figure class="slot w" style="--ratio:4/5;--d:120ms"><img src="images/11-parents.jpg" alt="Mom and Dad" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">11-parents.jpg</span><span class="ph-desc">Mom and Dad</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:120ms">Mom and Dad</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:4/5;--d:190ms"><img src="images/11-brother.jpg" alt="Anna and her brother" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">11-brother.jpg</span><span class="ph-desc">Anna and her brother</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:190ms">My brother</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:4/5;--d:260ms"><img src="images/11-sister.jpg" alt="Anna and her sister" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">11-sister.jpg</span><span class="ph-desc">Anna and her sister</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:260ms">My sister</p></div>
+    <div>
+    <figure class="slot w" style="--ratio:4/5;--d:330ms"><img src="images/11-group.jpg" alt="The smaller family group" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">11-group.jpg</span><span class="ph-desc">The smaller family group</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:330ms">All of us</p></div>
+  </div>
+  <p class="sub w" style="--d:420ms;margin-top:var(--s3)">Somewhere between youngest child and only child.</p>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">11</button>
+</div></section>
+
+<section class="slide pair-a s12" data-n="12"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">A few fun facts</h2>
   <div class="facts">
     <div class="fact"><p class="sub w" style="--d:100ms">I kickbox.</p><p class="body supp w" style="--d:240ms">Or I did. Currently very out of practice.</p></div>
     <div class="fact"><p class="sub w" style="--d:260ms">I take karaoke seriously.</p><p class="body supp w" style="--d:400ms">There is a setlist. I'd rather not discuss it.</p></div>
     <div class="fact"><p class="sub w" style="--d:420ms">I built a family history website.</p><p class="body supp w" style="--d:560ms">Tracing my great-great-grandparents' emigration from Ireland, mostly for fun.</p></div>
+    <div class="fact w" style="--d:580ms"><div class="tbd"><span class="k">Add a fourth</span><p class="h">One bold line, one line underneath. The pattern above is the whole format.</p></div></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
-  <button class="meta num" data-ov aria-label="Open overview">09</button>
+  <button class="meta num" data-ov aria-label="Open overview">12</button>
 </div></section>
 
-<section class="slide pair-b inverted s10" data-n="10"><div class="frame">
+<section class="slide pair-b inverted s13" data-n="13"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Favorites</h2>
   <div class="favs">
@@ -391,31 +495,45 @@ body.no-ph .ph{display:none!important}
     <div class="fav"><p class="sub w">Shows</p><p class="li items w">How I Met Your Mother, Game of Thrones, Grey's Anatomy</p></div>
     <div class="fav"><p class="sub w">Books</p><p class="li items w">ACOTAR and anything Sarah J. Maas, The Nightingale, How to Stop Worrying and Start Living</p></div>
     <div class="fav"><p class="sub w">Food</p><p class="li items w">Taco Bell, sushi, Mead St. Provisions</p></div>
+    <div class="fav w"><div class="tbd"><span class="k">Add a sixth</span><p class="h">Podcasts, places, people — whatever the missing category is.</p></div></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
-  <button class="meta num" data-ov aria-label="Open overview">10</button>
+  <button class="meta num" data-ov aria-label="Open overview">13</button>
 </div></section>
 
-<section class="slide pair-c inverted s11" data-n="11"><div class="frame">
+<section class="slide pair-c inverted s14" data-n="14"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Currently</h2>
   <div class="rows">
     <div class="row"><span class="meta k w" style="--d:100ms">Reading</span><span class="li w" style="--d:100ms">Theo of Golden</span><i class="rule" style="--d:100ms"></i></div>
     <div class="row"><span class="meta k w" style="--d:180ms">Watching</span><span class="li w" style="--d:180ms">The Vampire Diaries, and The Dark Wizard when I want something real</span><i class="rule" style="--d:180ms"></i></div>
     <div class="row"><span class="meta k w" style="--d:260ms">Listening</span><span class="li w" style="--d:260ms">Kingfisher</span><i class="rule" style="--d:260ms"></i></div>
+    <div class="row"><span class="meta k w" style="--d:340ms">Add one</span><div class="w" style="--d:340ms"><div class="tbd"><span class="k">Cooking, learning, avoiding</span><p class="h">Whatever the fourth row should be.</p></div></div><i class="rule" style="--d:340ms"></i></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
-  <button class="meta num" data-ov aria-label="Open overview">11</button>
+  <button class="meta num" data-ov aria-label="Open overview">14</button>
 </div></section>
 
-<section class="slide pair-a s12" data-n="12"><div class="frame">
+<section class="slide pair-b s15" data-n="15"><div class="frame">
+  <span class="spine meta">Anna Dooley</span>
+  <h2 class="sec w">Ask me about</h2>
+  <div class="asks">
+    <div><figure class="slot w" style="--ratio:4/5;--d:120ms"><img src="images/15-friends.jpg" alt="The friends" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">15-friends.jpg</span><span class="ph-desc">The friends</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:120ms">The friends</p></div>
+    <div><figure class="slot w" style="--ratio:4/5;--d:190ms"><img src="images/15-dog.jpg" alt="The family dog" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">15-dog.jpg</span><span class="ph-desc">The family dog</span><span class="ph-ratio">4:5</span></div></figure><p class="sub cap w" style="--d:190ms">The family dog</p></div>
+    <div class="w" style="--d:260ms"><div class="tbd"><span class="k">A third prompt</span><p class="h">The thing you actually want to be asked about on day one. A project, a trip, an argument you will happily have.</p></div></div>
+  </div>
+  <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
+  <button class="meta num" data-ov aria-label="Open overview">15</button>
+</div></section>
+
+<section class="slide pair-a s16" data-n="16"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <div class="stack">
     <h2 class="hero wr slow">Come say hi</h2>
     <p class="sub w" style="--d:200ms">I'm easy to find, and I will talk about any of the above at length.</p>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
-  <button class="meta num" data-ov aria-label="Open overview">12</button>
+  <button class="meta num" data-ov aria-label="Open overview">16</button>
 </div></section>
 
 </div>
@@ -431,8 +549,8 @@ body.no-ph .ph{display:none!important}
       bar=document.getElementById('progress'),hint=document.getElementById('hint'),ov=document.getElementById('ov'),
       slides=[].slice.call(document.querySelectorAll('.slide')),cur=0,busy=false,ovBuilt=false;
   var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
-  var TOC=["Where I'm from","Denver","Outside of work","Moving around","Places I've been","The family","A few fun facts","Favorites","Currently"],
-      ROM=['I','II','III','IV','V','VI','VII','VIII','IX'];
+  var TOC=["Where I'm from", "Denver", "Outside of work", "Making things", "Moving around", "Places I've been", "More places", "The family", "The immediate family", "A few fun facts", "Favorites", "Currently", "Ask me about"],
+      ROM=["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII"];
 
   /* contents rows, built as real buttons so they are keyboard reachable */
   var toc=document.querySelector('.toc');
