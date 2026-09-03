@@ -175,6 +175,9 @@ body.no-ph .ph{display:none!important}
 .stop .slot{margin-top:var(--s3);width:100%;--ratio:4/5}
 .cell .slot{margin-bottom:var(--s2);width:100%;--ratio:2.4/1}
 
+/* keep the left of the frame when a wide photo is cropped to portrait */
+.slot.left img{object-position:left center}
+
 /* a slot that must never crop — the whole group has to fit in frame */
 .slot.fit{background:color-mix(in srgb,var(--fg) 8%,transparent)}
 .slot.fit img{object-fit:contain}
@@ -384,9 +387,9 @@ body.no-ph .tbd{visibility:hidden}
     <div>
     <figure class="slot w" style="--ratio:4/5;--d:280ms"><img src="images/home-3.jpg" alt="Floating the river" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">home-3.jpg</span><span class="ph-desc">Floating the river</span><span class="ph-ratio">4:5</span></div></figure><p class="meta cap w" style="--d:280ms">Floating the river</p></div>
     <div>
-    <figure class="slot w" style="--ratio:4/5;--d:340ms"><img src="images/home-4.jpg" alt="More of Oregon" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">home-4.jpg</span><span class="ph-desc">More of Oregon</span><span class="ph-ratio">4:5</span></div></figure><p class="meta cap w" style="--d:340ms">Add one</p></div>
+    <figure class="slot w left" style="--ratio:4/5;--d:340ms"><img src="images/home-4.jpg" alt="Crater Lake" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">home-4.jpg</span><span class="ph-desc">Crater Lake</span><span class="ph-ratio">4:5</span></div></figure><p class="meta cap w" style="--d:340ms">Crater Lake</p></div>
     <div>
-    <figure class="slot w" style="--ratio:4/5;--d:400ms"><img src="images/home-5.jpg" alt="More of Oregon" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">home-5.jpg</span><span class="ph-desc">More of Oregon</span><span class="ph-ratio">4:5</span></div></figure><p class="meta cap w" style="--d:400ms">Add one</p></div>
+    <figure class="slot w" style="--ratio:4/5;--d:400ms"><img src="images/home-5.jpg" alt="The Oregon coast" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">home-5.jpg</span><span class="ph-desc">The Oregon coast</span><span class="ph-ratio">4:5</span></div></figure><p class="meta cap w" style="--d:400ms">The Oregon coast</p></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">04</button>
