@@ -1,8 +1,8 @@
 # Images
 
-Every slot below is filled. To swap a photograph, drop a new file in with the
-same name — no code changes, no rebuild. Delete one and the deck falls back to
-a styled placeholder that reserves the same space, so nothing shifts either way.
+Drop photos in here using these exact filenames. Each appears automatically —
+no code changes, no rebuild. Until a file exists the deck shows a styled
+placeholder that already reserves the right space, so nothing shifts.
 
 Slots are named for what they hold, not the slide they sit on, so reordering
 slides never renames a file.
@@ -34,8 +34,9 @@ slides never renames a file.
 | `home-1.jpg` | The Deschutes | filled |
 | `home-2.jpg` | An Oregon field | filled |
 | `home-3.jpg` | Floating the river | filled |
-| `home-4.jpg` | More of Oregon | filled |
-| `home-5.jpg` | More of Oregon | filled |
+| `home-4.jpg` | Crater Lake | filled |
+| `home-5.jpg` | The Oregon coast | filled |
+| `ireland-ancestral-home.jpg` | Inside the ancestral home | **needed** |
 | `ireland-group.jpg` | The wider family in Ireland | filled |
 | `like-ancient-history.jpg` | Ruins, a museum, a book stack | filled |
 | `like-art.jpg` | A drawing in progress | filled |
@@ -56,7 +57,7 @@ slides never renames a file.
 | `place-1.jpg` | Capri | filled |
 | `place-10.jpg` | Dublin | filled |
 | `place-11.jpg` | Forks, Washington | filled |
-| `place-12.jpg` | Somewhere you want to add | filled |
+| `place-12.jpg` | Victoria BC | filled |
 | `place-2.jpg` | Venice | filled |
 | `place-3.jpg` | Florence | filled |
 | `place-4.jpg` | Switzerland | filled |
@@ -75,7 +76,7 @@ slides never renames a file.
 | `trip-positano.jpg` | Positano | filled |
 
 Most slots crop with `object-fit: cover`. The ones that must never crop —
-`crew.jpg`, `ireland-group.jpg`, and every poster and book cover — use
-`object-fit: contain`, so the whole image stays visible whatever shape it is.
+`crew.jpg`, `ireland-group.jpg`, `ireland-ancestral-home.jpg`, and every poster
+and book cover — use `object-fit: contain`, so the whole image stays visible.
 
 Press `P` to hide placeholder chrome for a clean run-through or screenshot.

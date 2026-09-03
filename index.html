@@ -228,6 +228,14 @@ body.no-ph .tbd{visibility:hidden}
 .fam .slot{--ratio:4/5;width:100%}
 .fam .cap{margin-top:var(--s2)}
 
+/* ---------- 14 Ireland: the group beside the ancestral home ---------- */
+.duo{display:grid;grid-template-columns:1.7fr 1fr;gap:var(--gutter);
+  margin-top:var(--s4);flex:1;min-height:0}
+.duo > div{display:flex;flex-direction:column;min-height:0}
+.duo .slot{flex:1;min-height:0;width:100%;aspect-ratio:auto}
+.duo .cap{margin-top:var(--s1);opacity:.8}
+.duoline{margin-top:var(--s3);max-width:70ch}
+
 /* ---------- 13 the whole crew: shown complete, never cropped ---------- */
 .crew{display:flex;flex-direction:column;align-items:center;gap:var(--s3);
   margin-top:var(--s4);flex:1;justify-content:center;width:100%}
@@ -298,6 +306,8 @@ body.no-ph .tbd{visibility:hidden}
   .asks,.shelf{max-width:none}
   .s08 .wrap{grid-template-columns:1fr}
   .crew .slot{max-width:none;--ratio:4/3}
+  .duo{grid-template-columns:1fr;flex:none}
+  .duo .slot{aspect-ratio:16/9;flex:none}
   .cell .slot{--ratio:16/9}
   .makes,.grid8,.fam,.asks,.shelf,.homerow{flex:none}
 
@@ -475,11 +485,11 @@ body.no-ph .tbd{visibility:hidden}
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Places I've been</h2>
   <div class="cols">
-    <div class="trip"><p class="sub place w" style="--d:100ms">Oktoberfest, Munich</p><p class="meta year w" style="--d:100ms">Year</p><p class="body line w" style="--d:100ms">Exactly as advertised.</p>
+    <div class="trip"><p class="sub place w" style="--d:100ms">Oktoberfest, Munich</p><p class="meta year w" style="--d:100ms">2022</p><p class="body line w" style="--d:100ms">Exactly as advertised.</p>
     <figure class="slot w" style="--ratio:4/5;--d:100ms"><img src="images/trip-oktoberfest.jpg" alt="Oktoberfest" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">trip-oktoberfest.jpg</span><span class="ph-desc">Oktoberfest</span><span class="ph-ratio">4:5</span></div></figure></div>
-    <div class="trip"><p class="sub place w" style="--d:190ms">Positano, Italy</p><p class="meta year w" style="--d:190ms">Year</p><p class="body line w" style="--d:190ms">The one I'd go back to tomorrow.</p>
+    <div class="trip"><p class="sub place w" style="--d:190ms">Positano, Italy</p><p class="meta year w" style="--d:190ms">2024</p><p class="body line w" style="--d:190ms">The one I'd go back to tomorrow.</p>
     <figure class="slot w" style="--ratio:4/5;--d:190ms"><img src="images/trip-positano.jpg" alt="Positano" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">trip-positano.jpg</span><span class="ph-desc">Positano</span><span class="ph-ratio">4:5</span></div></figure></div>
-    <div class="trip weighted"><p class="sub place w" style="--d:280ms">Ireland</p><p class="meta year w" style="--d:280ms">Year</p><p class="body line w" style="--d:280ms">With twenty-six cousins, aunts and uncles.</p>
+    <div class="trip weighted"><p class="sub place w" style="--d:280ms">Ireland</p><p class="meta year w" style="--d:280ms">2026</p><p class="body line w" style="--d:280ms">With twenty-six cousins, aunts and uncles.</p>
     <figure class="slot w" style="--ratio:4/5;--d:280ms"><img src="images/trip-ireland.jpg" alt="Ireland" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">trip-ireland.jpg</span><span class="ph-desc">Ireland</span><span class="ph-ratio">4:5</span></div></figure></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
@@ -513,7 +523,7 @@ body.no-ph .tbd{visibility:hidden}
     <div>
     <figure class="slot w" style="--ratio:1/1;--d:490ms"><img src="images/place-11.jpg" alt="Forks, Washington" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">place-11.jpg</span><span class="ph-desc">Forks, Washington</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:490ms">Forks, Washington</p></div>
     <div>
-    <figure class="slot w" style="--ratio:1/1;--d:530ms"><img src="images/place-12.jpg" alt="Somewhere you want to add" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">place-12.jpg</span><span class="ph-desc">Somewhere you want to add</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:530ms">Add one</p></div>
+    <figure class="slot w" style="--ratio:1/1;--d:530ms"><img src="images/place-12.jpg" alt="Victoria BC" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">place-12.jpg</span><span class="ph-desc">Victoria BC</span><span class="ph-ratio">1:1</span></div></figure><p class="meta cap w" style="--d:530ms">Victoria BC</p></div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">10</button>
@@ -562,10 +572,11 @@ body.no-ph .tbd{visibility:hidden}
 <section class="slide pair-c s14" data-n="14"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">Ireland, all of us</h2>
-  <div class="crew">
-    <figure class="slot w fit" style="--ratio:16/9;--d:140ms"><img src="images/ireland-group.jpg" alt="The wider family in Ireland" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ireland-group.jpg</span><span class="ph-desc">The wider family in Ireland</span><span class="ph-ratio">16:9</span></div></figure>
-    <p class="sub w cap" style="--d:260ms">Twenty-six cousins, aunts and uncles. This is the trip the deck keeps coming back to.</p>
+  <div class="duo">
+    <div><figure class="slot w fit" style="--ratio:4/3;--d:140ms"><img src="images/ireland-group.jpg" alt="The wider family in Ireland" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ireland-group.jpg</span><span class="ph-desc">The wider family in Ireland</span><span class="ph-ratio">4:3</span></div></figure><p class="meta cap w" style="--d:140ms">Twenty-six of us</p></div>
+    <div><figure class="slot w fit" style="--ratio:3/4;--d:220ms"><img src="images/ireland-ancestral-home.jpg" alt="Inside the ancestral home" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">ireland-ancestral-home.jpg</span><span class="ph-desc">Inside the ancestral home</span><span class="ph-ratio">3:4</span></div></figure><p class="meta cap w" style="--d:220ms">The ancestral home</p></div>
   </div>
+  <p class="sub w duoline" style="--d:320ms">A trip to meet our Irish cousins and learn more about our ancestral roots.</p>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">14</button>
 </div></section>
@@ -578,7 +589,7 @@ body.no-ph .tbd{visibility:hidden}
     <div class="fact"><p class="sub w" style="--d:100ms">I kickbox.</p><p class="body supp w" style="--d:200ms">Or I did. Currently very out of practice.</p></div>
     <div class="fact"><p class="sub w" style="--d:220ms">I take karaoke seriously.</p><p class="body supp w" style="--d:320ms">There is a setlist. I'd rather not discuss it.</p></div>
     <div class="fact"><p class="sub w" style="--d:340ms">I built a family history website.</p><p class="body supp w" style="--d:440ms">Tracing my great-great-grandparents' emigration from Ireland, mostly for fun.</p></div>
-    <div class="fact"><p class="sub w" style="--d:460ms">I'm related to Ashton Kutcher.</p></div>
+    <div class="fact"><p class="sub w" style="--d:460ms">I'm related to Ashton Kutcher.</p><p class="body supp w" style="--d:560ms">A couple of lines removed, but it's my only claim to fame.</p></div>
     <div class="fact"><p class="sub w" style="--d:580ms">I play Pepper.</p><p class="body supp w" style="--d:680ms">Bidding euchre, and a family institution. It gets loud.</p></div>
   </div>
   <div>
