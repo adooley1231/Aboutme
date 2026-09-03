@@ -51,12 +51,12 @@ slides never renames a file.
 | `place-10.jpg` | 1:1 | Dublin | filled |
 | `place-11.jpg` | 1:1 | Forks, Washington | filled |
 | `place-12.jpg` | 1:1 | Add one | **needed** |
-| `family-reunion.jpg` | 16:9 | The forty-cousins group photo | filled |
+| `family-reunion.jpg` | 16:9 | The forty cousins — the whole-family field photo | filled |
 | `fam-parents.jpg` | 4:5 | Mom and Dad | filled |
 | `fam-brother.jpg` | 4:5 | Anna and her brother | filled |
 | `fam-sister.jpg` | 4:5 | Anna and her sister | filled |
 | `fam-nieces-nephews.jpg` | 4:5 | Anna with her nieces and nephews | **needed** |
-| `crew.jpg` | 16:9 | The whole crew — shown whole, never cropped | filled |
+| `crew.jpg` | 16:9 | The immediate family together — shown whole, never cropped | filled |
 | `fact-pepper.jpg` | 4:5 | A hand of Pepper | filled |
 | `poster-1.jpg` | 2:3 | The Green Mile | **needed** |
 | `poster-2.jpg` | 2:3 | When Harry Met Sally | **needed** |
