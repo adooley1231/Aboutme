@@ -211,10 +211,10 @@ body.no-ph .tbd{visibility:hidden}
 .make .line{margin-top:var(--s1);opacity:.8}
 .make .tbd{margin-top:var(--s1);padding:calc(var(--s2) * .75)}
 
-/* ---------- 08 moving around: the list beside a three-up strip ---------- */
-.s08 .wrap{grid-template-columns:1fr 42cqw;gap:var(--s5)}
-.movepix{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter)}
-.movepix .slot{--ratio:4/5;width:100%}
+/* ---------- 08 moving around: the list beside a 2x2 ---------- */
+.s08 .wrap{grid-template-columns:1fr 58cqw;gap:var(--s5)}
+.movepix{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gutter)}
+.movepix .slot{--ratio:4/3;width:100%}
 
 /* ---------- 10 everywhere else ---------- */
 .grid8{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s3) var(--gutter);
@@ -460,10 +460,11 @@ body.no-ph .tbd{visibility:hidden}
       <li class="li w" style="--d:170ms">Hiking</li>
       <li class="li w" style="--d:240ms">Skiing</li>
       <li class="li w" style="--d:310ms">Golf</li>
-      <li class="li w slow aspirational" style="--d:760ms">Trying to become a runner</li>
+      <li class="li w" style="--d:380ms">Rec leagues</li>
+      <li class="li w slow aspirational" style="--d:830ms">Trying to become a runner</li>
     </ul>
     <div class="movepix">
-      <figure class="slot w" style="--ratio:4/5;--d:200ms"><img src="images/move-hiking.jpg" alt="Hiking the Three Sisters" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-hiking.jpg</span><span class="ph-desc">Hiking the Three Sisters</span><span class="ph-ratio">4:5</span></div></figure><figure class="slot w" style="--ratio:4/5;--d:280ms"><img src="images/move-skiing.jpg" alt="Skiing" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-skiing.jpg</span><span class="ph-desc">Skiing</span><span class="ph-ratio">4:5</span></div></figure><figure class="slot w" style="--ratio:4/5;--d:360ms"><img src="images/move-running.jpg" alt="A race, medals and all" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-running.jpg</span><span class="ph-desc">A race, medals and all</span><span class="ph-ratio">4:5</span></div></figure><figure class="slot w" style="--ratio:4/5;--d:440ms"><img src="images/move-leagues.jpg" alt="A league, whole team" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-leagues.jpg</span><span class="ph-desc">A league, whole team</span><span class="ph-ratio">4:5</span></div></figure>
+      <figure class="slot w" style="--ratio:4/3;--d:200ms"><img src="images/move-hiking.jpg" alt="Hiking the Three Sisters" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-hiking.jpg</span><span class="ph-desc">Hiking the Three Sisters</span><span class="ph-ratio">4:3</span></div></figure><figure class="slot w" style="--ratio:4/3;--d:280ms"><img src="images/move-skiing.jpg" alt="Skiing" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-skiing.jpg</span><span class="ph-desc">Skiing</span><span class="ph-ratio">4:3</span></div></figure><figure class="slot w" style="--ratio:4/3;--d:360ms"><img src="images/move-running.jpg" alt="A race, medals and all" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-running.jpg</span><span class="ph-desc">A race, medals and all</span><span class="ph-ratio">4:3</span></div></figure><figure class="slot w" style="--ratio:4/3;--d:440ms"><img src="images/move-leagues.jpg" alt="A league, whole team" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">move-leagues.jpg</span><span class="ph-desc">A league, whole team</span><span class="ph-ratio">4:3</span></div></figure>
     </div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
