@@ -232,6 +232,13 @@ body.no-ph .tbd{visibility:hidden}
 .crew .slot{--ratio:16/9;width:100%;max-width:58%}
 .crew .cap{text-align:center;max-width:56ch}
 
+/* ---------- 14 fun facts, beside the family tree ---------- */
+.factwrap{display:grid;grid-template-columns:1fr;gap:var(--s4);margin-top:var(--s4);
+  flex:1;align-items:center}
+@media (min-width:900px){ .factwrap{grid-template-columns:1fr 30cqw;gap:var(--s6)} }
+.factwrap .facts{margin-top:0;flex:none;gap:var(--s4)}
+.factwrap .slot{--ratio:4/5;width:100%}
+
 /* ---------- 16 / 17 posters and covers ---------- */
 .shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter);
   margin-top:var(--s4);flex:1;align-content:center;max-width:84%}
@@ -284,7 +291,7 @@ body.no-ph .tbd{visibility:hidden}
   .trip .slot{height:auto;width:100%;flex:none;margin-top:var(--s2)}
   .s11 .txt{margin-top:40vh}
   .toc{column-count:1}
-  .makes,.grid8,.fam,.asks,.movepix,.shelf,.fave .gal{grid-template-columns:1fr}
+  .makes,.grid8,.fam,.asks,.movepix,.shelf,.fave .gal,.factwrap{grid-template-columns:1fr}
   .makes,.grid8,.asks,.shelf{max-width:none}
   .s08 .wrap{grid-template-columns:1fr}
   .crew .slot{max-width:none;--ratio:4/3}
@@ -544,11 +551,17 @@ body.no-ph .tbd{visibility:hidden}
 <section class="slide pair-a s14" data-n="14"><div class="frame">
   <span class="spine meta">Anna Dooley</span>
   <h2 class="sec w">A few fun facts</h2>
+  <div class="factwrap">
   <div class="facts">
     <div class="fact"><p class="sub w" style="--d:100ms">I kickbox.</p><p class="body supp w" style="--d:240ms">Or I did. Currently very out of practice.</p></div>
     <div class="fact"><p class="sub w" style="--d:260ms">I take karaoke seriously.</p><p class="body supp w" style="--d:400ms">There is a setlist. I'd rather not discuss it.</p></div>
     <div class="fact"><p class="sub w" style="--d:420ms">I built a family history website.</p><p class="body supp w" style="--d:560ms">Tracing my great-great-grandparents' emigration from Ireland, mostly for fun.</p></div>
-    <div class="fact w" style="--d:580ms"><div class="tbd"><span class="k">Add a fourth</span><p class="h">One bold line, one line underneath. The pattern above is the whole format.</p></div></div>
+    <div class="fact"><p class="sub w" style="--d:580ms">I'm related to Ashton Kutcher.</p><p class="body supp w" style="--d:700ms">Distantly. The family history site turned it up, and I have the tree to prove it.</p></div>
+    <div class="fact"><p class="sub w" style="--d:720ms">I play Pepper.</p><p class="body supp w" style="--d:840ms">Bidding euchre, and a family institution. It gets loud.</p></div>
+  </div>
+  <div>
+    <figure class="slot w" style="--ratio:4/5;--d:640ms"><img src="images/14-family-tree.jpg" alt="The family tree, or the Kutcher branch" onerror="this.closest('.slot').classList.add('is-empty')"><div class="ph" aria-hidden="true"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0 0L100 100M100 0L0 100" vector-effect="non-scaling-stroke"/></svg><span class="ph-name">14-family-tree.jpg</span><span class="ph-desc">The family tree, or the Kutcher branch</span><span class="ph-ratio">4:5</span></div></figure>
+  </div>
   </div>
   <div class="meta foot">About Me<br>Sr. Product Designer · 2026</div>
   <button class="meta num" data-ov aria-label="Open overview">14</button>

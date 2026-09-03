@@ -47,6 +47,7 @@ placeholder that already reserves the right space, so nothing shifts.
 | `12-sister.jpg` | 4:5 | Anna and her sister | filled |
 | `12-nieces-nephews.jpg` | 4:5 | Anna with her nieces and nephews | **needed** |
 | `13-crew.jpg` | 16:9 | All of us — shown whole, never cropped | filled |
+| `14-family-tree.jpg` | 4:5 | The family tree, or the Kutcher branch | **needed** |
 | `16-poster-1.jpg` | 2:3 | The Green Mile | **needed** |
 | `16-poster-2.jpg` | 2:3 | When Harry Met Sally | **needed** |
 | `16-poster-3.jpg` | 2:3 | Harry Potter | **needed** |
